@@ -19,10 +19,11 @@
 
 function numArr(start, end, makeZero){
 	var i = start;
-	var a = end;
 	var numbers = [];
-	for(i; i < a; i++){
-		numbers[i] = i;
+	for(i; i < end; i++){
+		if(i % 2 != 0){
+			numbers[i] = i;
+		}
 		if(makeZero == true && i % 2 == 0){
 			numbers[i] = 0;
 		}
