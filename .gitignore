@@ -1,8 +1,0 @@
-.idea/*
-build/*
-node_modules/*
-vendor/*
-.DS_Store
-npm-debug.log
-test/cucumber/.idea/*
-test/cucumber/Gemfile.lock
