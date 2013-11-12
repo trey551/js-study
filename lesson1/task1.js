@@ -20,7 +20,7 @@
 function numArr(start, end, makeZero){
 	var numbers = [];
 	for(var i = start; i < end; i++){
-		if(i % 2 != 0 || makeZero == true && i % 2 == 0){
+		if(i % 2 != 0 || makeZero == true){
 			numbers[i] = i;
 		}else{
 			numbers[i] = 0;
