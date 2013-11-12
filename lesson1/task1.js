@@ -18,17 +18,19 @@
 
 
 function numArr(start, end, makeZero){
+	var i = start;
+	var a = end;
 	var numbers = [];
-	for(start; start < end; start++){
-		numbers[start] = start;
-		if(makeZero == true && start % 2 == 0){
-			numbers[start] = 0;
+	for(i; i < a; i++){
+		numbers[i] = i;
+		if(makeZero == true && i % 2 == 0){
+			numbers[i] = 0;
 		}
 	}
 	return numbers;
 }
 
-var result = numArr(0, 50 , false);
+var result = numArr(0, 50 , true);
 
 console.log(result);
 
