@@ -29,7 +29,7 @@ function numArr(start, end, makeZero){
 	return numbers;
 }
 
-var result = numArr(0, 50 , false);
+var result = numArr(0, 50 , true);
 
 console.log(result);
 
