@@ -1,20 +1,36 @@
-var numbers = [];
-var sum = 0;
+// var numbers = [];
+// var sum = 0;
 
-for(var i = 0; i < 100; i++){
-	numbers[i] = i;
-	sum = sum + i;
-	if(i % 3 == 0){
-		numbers[i] = -i;
+// for(var i = 0; i < 100; i++){
+// 	numbers[i] = i;
+// 	sum = sum + i;
+// 	if(i % 3 == 0){
+// 		numbers[i] = -i;
+// 	}
+// 	if(i % 4 == 0){
+// 		numbers[i] = 0;
+// 	}
+// }
+
+
+// console.log(numbers);
+// console.log(sum);
+
+
+function numArr(start, end, makeZero){
+	var numbers = [];
+	for(start; start < end; start++){
+		numbers[start] = start;
+		if(makeZero == true && start % 2 == 0){
+			numbers[start] = 0;
+		}
 	}
-	if(i % 4 == 0){
-		numbers[i] = 0;
-	}
+	return numbers;
 }
 
+var result = numArr(0, 50 , false);
 
-console.log(numbers);
-console.log(sum);
+console.log(result);
 
 
 
@@ -23,3 +39,8 @@ console.log(sum);
 //вторым циклом считаем сумму этих чисел, 
 //третим циклом каждое третье число делаем отрицательным
 //в четв цикле каждое четв число сделать нулем
+
+
+//написать функцию, которая принимает диапазон значений start end
+//makeEvenNumbersZero boolean flag делать ли четные числа нулями.
+//return array этих вот чисел.
