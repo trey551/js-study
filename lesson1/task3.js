@@ -1,3 +1,29 @@
+var arr = [22, 3, 67, 78, 23, 20, 78];
+
+function arrValue(arr, flag){
+	var min = arr[0];
+	var max = min;
+	for (i = 0; i < arr.length; ++i) {
+		if (arr[i] > max){
+			max = arr[i];
+		}
+		if (arr[i] < min){
+			min = arr[i];
+		}
+	}
+	if(flag == true){
+		result = max;
+	}else{
+		result = min;
+	}
+	return result;
+}
+
+var result = arrValue(arr, false);
+console.log(result);
+
+
+
 
 
 // Написать функцию, принимает массив и булевый флаг,
