@@ -19,8 +19,7 @@ function arrValue(arr, flag){
 	return result;
 }
 
-var result = arrValue(arr, false);
-console.log(result);
+console.log(arrValue(arr, true));
 
 
 
