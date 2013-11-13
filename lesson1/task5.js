@@ -1,7 +1,9 @@
 var arr1 = [5, 5];
 var arr2 = [5, 6];
 
-
+function function_name (argument) {
+	
+}
 
 
 
