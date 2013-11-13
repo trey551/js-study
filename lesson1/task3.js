@@ -11,7 +11,7 @@ function arrValue(arr, flag){
 			min = arr[i];
 		}
 	}
-	if(flag == true){
+	if(flag){
 		result = max;
 	}else{
 		result = min;
@@ -19,7 +19,7 @@ function arrValue(arr, flag){
 	return result;
 }
 
-var result = arrValue(arr, false);
+var result = arrValue(arr, true);
 console.log(result);
 
 
