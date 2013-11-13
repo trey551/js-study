@@ -2,13 +2,18 @@ var arr1 = [10, 40, 33];
 var arr2 = [5, 6];
 
 function maxSumm(arr1, arr2){
+	
+	
+	
+	
 	var summ1 = 0;
 	for(var i = 0; i < arr1.length; i++){
 		summ1 = summ1 + arr1[i];
 	}
 	return summ1;
+	summ
+	//////
 }
-
 console.log(maxSumm(arr1, arr2));
 
 
