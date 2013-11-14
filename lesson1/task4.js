@@ -1,12 +1,22 @@
 var arr1 = [1, 3, 5, 7];
-var arr2 = [2, 4, 6, 8];
+var arr2 = [2, 4, 6, 8, 10, 20, 30];
 
 function crosingArrs(arr1, arr2){
 	var arr3 = [];
+	var balance = [];
 	for(var i= 0, a = 0; i < arr1.length || a < arr2.length; i++, a++){
-			arr3.push(arr1[i], arr2[a]);
+			if(arr1[i] == undefined || arr2[a] == undefined){
+				undefined = '';
+			}else{
+				arr3.push(arr1[i], arr2[a]);
+			}
+			if(arr1[i] == undefined){
+				balance.push(arr2[a]);
+			}else if(arr2[a] == undefined){
+				balance.push(arr1[i]);
+			}
 	}
-	return arr3;
+	return  'Result: ' + arr3 + '   Balanse: ' + balance;
 }
 
 console.log(crosingArrs(arr1, arr2));
