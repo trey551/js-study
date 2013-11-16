@@ -1,4 +1,4 @@
-var arr1 = [9, 3, 33];
+var arr1 = [5, 6];
 var arr2 = [5, 6];
 
 function maxSumm(){
@@ -23,8 +23,8 @@ function maxSumm(){
 		}else if(summArr1 < summArr2){
 			return summArr2;
 		}else{
-			var eq = 'equal';
-			return eq;
+			
+			return 'equal';
 		}
 	}
 	return summArrs();
