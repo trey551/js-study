@@ -14,3 +14,31 @@ function bubleSort(arr){
 }
 
 console.log(bubleSort(arr));
+
+
+
+
+//Функция на вход получает массив таких вот объектов, а на выход ты должен
+//отсортировать их бабл сортом по возрасту, также должен поддерживаться параметр, 
+//сортировать по возрастанию или убыванию.
+
+
+var citizen1 = {
+    name:'Vasya',
+    age:25
+}
+var citizen2 = {
+    name:'Petya',
+    age:20
+}
+
+
+
+
+
+var citizen = {
+    name:'Vasya',
+    age:25,
+    name:'Petya',
+    age:20
+}
