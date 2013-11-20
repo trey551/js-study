@@ -23,19 +23,19 @@
 //сортировать по возрастанию или убыванию.
 
 var people = [
-	citizen = {
+	citizen1 = {
 	    name:'Vasya',
 	    age:25
 	},
-	citizen = {
+	citizen2 = {
 	    name:'Petya',
 	    age:20
 	},
-	citizen = {
+	citizen3 = {
 	    name:'Kolya',
 	    age:18
 	},
-	citizen = {
+	citizen4 = {
 	    name:'Vitya',
 	    age:36
 	},
