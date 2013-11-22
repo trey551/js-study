@@ -22,5 +22,4 @@ var a = [{
 		}
 	}]
 }];
-
-console.log(a[0].array);
+console.log(a[0].array[0].age.a);
