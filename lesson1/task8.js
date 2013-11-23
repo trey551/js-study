@@ -73,7 +73,7 @@ function Auto(mark, autoClass, year, mileage, autoColor) {
     this.setMark = function(mark){
         for(var i = 0; i < config.permittedModels.length; i++){
             if(mark == config.permittedModels[i]){
-                console.log(mark);
+                this.mark = mark;
                 return false;
             }
         }
@@ -81,7 +81,7 @@ function Auto(mark, autoClass, year, mileage, autoColor) {
     }
     this.setMileage = function(mileage){
         if(mileage >= 0){
-            console.log(mileage);
+            this.mileage = mileage;
         }else{
             console.log('Error! The mileage must bu positive');
         }
@@ -96,11 +96,37 @@ lada.setMark('qq');
 lada.setMileage(-44);
 
 
-
 // Написать класс для геометрический фигур
 // продумать какие параметры логично передать в конструктор
 // написать методы для определиня площади и периметра, геттеры/сеттеры
 
 
 
+
+// function figures(figName, figHeight, figWidth){
+//     this.getName = function(){
+//         return this.figName;
+//     }
+//     this.getHeight = function(){
+//         return this.figHeight;
+//     }
+//     this.getWidth = function(){
+//         return this.figWidth;
+//     }
+//     this.getPerimetr = function(){
+//         return this.figPerimetr;
+//     }
+//     this.getArea = function(){
+//         return this.figArea;
+//     }
+//     this.setPerimetr(figHeight, figWidth){
+//         this.figPerimetr = (figHeight + figWidth) * 2;
+//     }
+//     this.setArea(figHeight, figWidth){
+//         this.setArea = figHeight * figWidth;
+//     }
+// }
+
+// var square = new figures('square', 20, 20);
+// var rectangle = new figures('rectangle' 20, 40);
 
