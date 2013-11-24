@@ -55,6 +55,14 @@ var config = {
 }
 
 function Auto(mark, autoClass, year, mileage, autoColor) {
+
+    this.mark = mark;
+    this.autoClass = autoClass;
+    this.year = year;
+    this.mileage = mileage;
+    this.autoColor = autoColor;
+
+
     this.getMark = function(){
         return this.mark
     }
@@ -92,8 +100,10 @@ var bmw = new Auto(config.permittedModels[0], config.permittedClass[0], 1990, 12
 var opel = new Auto(config.permittedModels[1], config.permittedClass[1], 2000, 59999, 'green');
 var lada = new Auto(config.permittedModels[2], config.permittedClass[2], 2013, 1000, 'gold');
 
-lada.setMark('qq');
-lada.setMileage(-44);
+//lada.setMark('man');
+lada.setMileage(5000);
+console.log(lada.getMileage())
+
 
 
 // Написать класс для геометрический фигур
