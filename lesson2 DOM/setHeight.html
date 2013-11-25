@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set Height</title>
+
+	<style type="text/css">
+		.block{
+			width:100%;
+			overflow:hidden;
+			text-align:center;
+			margin:300px 0 0 0;
+		}
+		.block div{
+			width:100px;
+			display:inline-block;
+			margin:0 10px;
+		}
+		.block div.box1{
+			background:green;
+			height:50px;
+		}
+		.block div.box2{
+			background:red;
+			height:239px;
+		}
+		.block div.box3{
+			background:yellow;
+			height:175px;
+		}
+	</style>
+</head>
+<body>
+	<div class="block">
+		<div class="box1">Some Text</div>
+		<div class="box2">Some Text</div>
+		<div class="box3">Some Text</div>
+	</div>
+	<script type="text/javascript">
+		var block = document.querySelectorAll('.block div');
+		var maxHeight = 0;
+
+		for(var i = 0; i < block.length; i++){
+			if(maxHeight < block[i].clientHeight){
+				maxHeight = block[i].clientHeight;
+			}
+		}
+		for(var i = 0; i < block.length; i++){
+			block[i].style.height = maxHeight + 'px';
+		}
+
+
+
+
+	</script>
+</body>
+</html>
+
+
+<!--[20:38:41] Pavel Voronin: Есть на странице 3и блока, float:left с текстом разной высоты-->
+<!--[20:38:50] Pavel Voronin: ширина блоков , 100px-->
+<!--[20:39:14] Pavel Voronin: сделать их одинаковой высоты-->
+<!--[20:42:15] Pavel Voronin: element.clientHeight;-->
+<!--htmlelement.offsetHeight-->
