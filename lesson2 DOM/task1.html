@@ -2,26 +2,50 @@
 <html>
 <head>
 	<title>Task1</title>
-
-	<style type="text/css">
-		body{
-			height: 1000px;
-		}
-		.class{
-			font-weight: normal;
-			color: #3c26ff;
-			margin: 0;
-		}
-	</style>
 </head>
 <body>
-	<div class="class">
+	<div class="test test3">
 		<h1>Hello!</h1>
 	</div>
 
-
 	<script type="text/javascript">
-		document.body.style.backgroundColor = 'green';
+		var el = document.querySelector('div');
+		function removeClass(classToRemove, node){
+			if(node.className.indexOf(classToRemove) == -1){
+				console.log('This class does not exist');
+			}else{
+				for(var i = 0; i < node.classList.length; i++){
+					if(node.classList[i] === classToRemove){
+						node.classList[i] = '';
+					}else{
+						node.className = node.classList[i];
+					}
+				}
+				console.log(classToRemove + ' class was deleted');
+			}
+		}
+		function addClass(classToAdd, node){
+			if(node.className.indexOf(classToAdd) == -1){
+				node.className += " " + classToAdd;
+				console.log(classToAdd + ' class was added');
+			}else{
+				console.log('A class already exists');
+			}
+		}
+		function hasClass(hasClass, node){
+			if(node.className.indexOf(hasClass) == -1){
+				console.log('This class does not exist');
+			}else{
+				console.log('Yes! Class has ' + hasClass);
+			}
+		}
+
+		removeClass('testgg', el);
+		addClass('test', el);
+		hasClass('test', el);
+
+		// console.log(classes);
+
 	</script>
 </body>
 </html>
@@ -46,5 +70,3 @@
 <!--[20:32:36] Pavel Voronin: которые работают через className-->
 <!--[20:33:13] Pavel Voronin: removeClass(classToRemove, node)-->
 <!--[20:33:24] Pavel Voronin: addClass(classToAdd, node)-->
-<!--[20:38:08] Pavel Voronin: div.style.height = 100 + "px";-->
-<!--div.style.backgroundColor = "red"-->
