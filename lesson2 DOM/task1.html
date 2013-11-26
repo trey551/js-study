@@ -4,23 +4,23 @@
 	<title>Task1</title>
 </head>
 <body>
-	<div class="test test3">
+	<div class="test test3 sss ggg">
 		<h1>Hello!</h1>
 	</div>
 
 	<script type="text/javascript">
 		var el = document.querySelector('div');
 		function removeClass(classToRemove, node){
-			if(node.className.indexOf(classToRemove) == -1){
+			var classToRemoveLength = classToRemove.length;
+			var classToRemoveStart = node.className.indexOf(classToRemove);
+			var classToRemoveEnd = classToRemoveStart + classToRemoveLength;
+			var strBefore = node.className.slice(0, classToRemoveStart);
+			var strAfter = node.className.slice(classToRemoveEnd);
+			var clearClass = '';
+			if(classToRemoveStart == -1){
 				console.log('This class does not exist');
 			}else{
-				for(var i = 0; i < node.classList.length; i++){
-					if(node.classList[i] === classToRemove){
-						node.classList[i] = '';
-					}else{
-						node.className = node.classList[i];
-					}
-				}
+				node.className = clearClass.concat(strBefore + strAfter);
 				console.log(classToRemove + ' class was deleted');
 			}
 		}
@@ -40,9 +40,9 @@
 			}
 		}
 
-		removeClass('testgg', el);
-		addClass('test', el);
-		hasClass('test', el);
+		removeClass('sss', el);
+		// addClass('test', el);
+		// hasClass('test', el);
 
 	</script>
 </body>
