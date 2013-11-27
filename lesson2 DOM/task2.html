@@ -1,9 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set Color</title>
 
+	<style type="text/css">
+		.block{
+			width:100%;
+			overflow:hidden;
+			text-align:center;
+			margin:200px 0 0 0;
+		}
+		.block div{
+			width:100px;
+			margin:0 10px;
+			height:150px;
+			display:inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class="block">
+		<div>Some Text</div>
+		<div>Some Text</div>
+		<div>Some Text</div>
+	</div>
+	<script type="text/javascript">
+	var colors = ['red', 'green', 'black', 'pink', 'blue', 'yellow'];
+	var blocks = document.querySelectorAll('.block div');
+	function randomColorIndex(arrLength){
+		var randomNum = Math.floor(Math.random() * arrLength);
+		return randomNum;
+	}
+	function setColor(colors, blocks){
+		for(var i = 0, a = 0; i < blocks.length && a < colors.length; i++, a++){
+			var colorsLength = colors.length;
+			var indexColor = randomColorIndex(colorsLength);
+			blocks[i].style.backgroundColor = colors[indexColor];
+			colors.splice(indexColor, 1);
+		}
+	}
 
-
-
-
-
+	setColor(colors, blocks);
+	</script>
+</body>
+</html>
 
 
 <!-- На страници 3и блока, необходимо каждому блоку присвоить
