@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<<<<<<< HEAD
+	<title>Set Height</title>
+
+	<style type="text/css">
+		.block{
+			width:100%;
+			overflow:hidden;
+			text-align:center;
+			margin:300px 0 0 0;
+		}
+		.block div{
+			width:100px;
+			display:inline-block;
+			margin:0 10px;
+		}
+		.block div.box1{
+			background:green;
+			height:50px;
+		}
+		.block div.box2{
+			background:red;
+			height:239px;
+		}
+		.block div.box3{
+			background:yellow;
+			height:175px;
+		}
+	</style>
+</head>
+<body>
+	<div class="block">
+		<div class="box1">Some Text</div>
+		<div class="box2">Some Text</div>
+		<div class="box3">Some Text</div>
+	</div>
+	<script type="text/javascript">
+		var el = document.querySelector('div');
+		function removeClass(classToRemove, node){
+			var classToRemoveLength = classToRemove.length;
+			var classToRemoveStart = node.className.indexOf(classToRemove);
+			var classToRemoveEnd = classToRemoveStart + classToRemoveLength;
+			var strBefore = node.className.slice(0, classToRemoveStart);
+			var strAfter = node.className.slice(classToRemoveEnd);
+			var clearClass = '';
+			if(classToRemoveStart == -1){
+				console.log('This class does not exist');
+			}else{
+				node.className = clearClass.concat(strBefore + strAfter);
+				console.log(classToRemove + ' class was deleted');
+			}
+		}
+		function addClass(classToAdd, node){
+			if(node.className.indexOf(classToAdd) == -1){
+				node.className += " " + classToAdd;
+				console.log(classToAdd + ' class was added');
+			}else{
+				console.log('A class already exists');
+			}
+		}
+		function hasClass(hasClass, node){
+			if(node.className.indexOf(hasClass) == -1){
+				console.log('This class does not exist');
+			}else{
+				console.log('Yes! Class has ' + hasClass);
+			}
+		}
+
+		removeClass('sss', el);
+		// addClass('test', el);
+		// hasClass('test', el);
+	</script>
+</body>
+</html>
+
+
+
+<!--node.querySelectorAll("selector")-->
+<!--[20:13:23] Pavel Voronin: https://developer.mozilla.org/en-US/docs/Web/API/Document.querySelectorAll-->
+<!--[20:21:05] Pavel Voronin: https://developer.mozilla.org/en-US/docs/Web/API/Element.classList-->
+<!--[20:26:37] Pavel Voronin: div.className-->
+<!--[20:28:28] Pavel Voronin: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype#Methods-->
+<!--[20:31:50] Pavel Voronin: var str = "test test3 teest";-->
+<!--if (str.indexOf("test3") == -1) {-->
+
+
+
+<!--}-->
+<!--[20:32:25] Pavel Voronin: Написать функции-утилиты, remoteClass, addClass, hasClass-->
+<!--[20:32:36] Pavel Voronin: которые работают через className-->
+<!--[20:33:13] Pavel Voronin: removeClass(classToRemove, node)-->
+<!--[20:33:24] Pavel Voronin: addClass(classToAdd, node)-->
