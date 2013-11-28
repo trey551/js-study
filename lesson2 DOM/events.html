@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Set Height</title>
+    </head>
+    <body>
+        <div class="block">
+            <div class="box1">Some Text</div>
+            <div class="box2">Some Text</div>
+            <div class="box3">Some Text</div>
+        </div>
+
+        <input type="text" />
+
+        <a href="#" id="link">LINK</a>
+        <a href="#" id="link2">LINK</a>
+        <a href="#" id="link3">LINK</a>
+
+
+        <script type="text/javascript">
+            var links = document.querySelectorAll("a");
+
+            for (var i = 0; i < links.length; i++) {
+                (function(){
+                    var localIndex = i;
+
+                    links[i].addEventListener("click", function(){
+                        alert(localIndex)
+                    }, false);
+                })();
+            }
+
+            //input placeholder script
+            // значение будет в value
+
+            //есть список в котором лежат слайды
+            //есть paging 1,2,3
+            //нажимаешь на paging - отображается слайд нужный.
+
+
+            slides = docu.query("slides");
+            links = document.qery("links");
+
+            for (){
+                slides.hide();
+            }
+
+            slides[0].show();
+
+            for () {
+                link.addEventList(click, function(){
+                    slides.hide();
+
+                    //care!!!!
+                    slide[i].show()
+                });
+            }
+        </script>
+    </body>
+</html>
