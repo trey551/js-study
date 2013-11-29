@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My First Gallery</title>
+	<style type="text/css">
+		ul{
+			list-style: none;
+		}
+		ul li{
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+<ul id="gallery">
+	<li><a href="#"><img src="images/img01.jpg" alt=""/></a></li>
+	<li><a href="#"><img src="images/img02.jpg" alt=""/></a></li>
+	<li><a href="#"><img src="images/img03.jpg" alt=""/></a></li>
+</ul>
+<div id="pager">
+	<a href="#">1</a>
+	<a href="#">2</a>
+	<a href="#">3</a>
+</div>
+
+<script type="text/javascript">
+	var slides = document.querySelectorAll('#gallery li');
+	var pager = document.querySelectorAll('#pager a');
+	function hideAllSlides(){
+		for(var i = 0; i < slides.length; i++){
+			slides[i].style.display = 'none';
+		}
+	}
+	hideAllSlides();
+	slides[0].style.display = 'block';
+
+	for(var i = 0; i < pager.length; i++){
+		(function(){
+			var localIndex = i;
+			pager[i].addEventListener('click', function(){
+				hideAllSlides();
+				slides[localIndex].style.display = 'block';
+			}, false);
+		})();
+	}
+</script>
+</body>
+</html>
