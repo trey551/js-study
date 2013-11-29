@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Set Color</title>
+
+        <style type="text/css">
+                .block{
+                        width:100%;
+                        overflow:hidden;
+                        text-align:center;
+                        margin:200px 0 0 0;
+                }
+                .block div{
+                        width:100px;
+                        margin:0 10px;
+                        height:150px;
+                        display:inline-block;
+                }
+        </style>
+</head>
+<body>
+        <div class="block">
+                <div>Some Text</div>
+                <div>Some Text</div>
+                <div>Some Text</div>
+        </div>
+    <div class="block2">
+                    <div>Some Text</div>
+                    <div>Some Text</div>
+                    <div>Some Text</div>
+            </div>
+        <script type="text/javascript">
+        var colors = ['red', 'green', 'black', 'yellow'];
+        function randomColorIndex(arrLength){
+                var randomNum = Math.floor(Math.random() * arrLength);
+
+                return randomNum;
+        }
+
+        function setColor(colors, blocks){
+        var newArray = colors.slice(0);
+
+        for(var i = 0; i < blocks.length; i++){
+                        var indexColor = randomColorIndex(newArray.length);
+                        blocks[i].style.backgroundColor = newArray[indexColor];
+            newArray.splice(indexColor, 1);
+                }
+        }
+
+        setColor(colors, document.querySelectorAll('.block div'));
+    setColor(colors, document.querySelectorAll('.block2 div'));
+        </script>
+</body>
+</html>
