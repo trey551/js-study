@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Placeholder</title>
+    </head>
+    <body>
+        <input type="text" value='hiding text'/>
+
+
+
+        <script type="text/javascript">
+            var inp = document.querySelector('input[type=text]');
+            var localVal = inp.value;
+            var active = true;
+
+
+            inp.addEventListener('focus', function(){
+                if(active){
+                    clearVal(inp);
+                }
+            }, false);
+            function clearVal(input){
+                input.value = '';
+            }
+
+            inp.addEventListener('blur', function(){
+                returnVal(inp);
+            }, false);
+
+            function returnVal(input){
+                if(input.value != ''){
+                    active = false;
+                }else{
+                    input.value = localVal;
+                    active = true;
+                }
+            }
+
+
+        </script>
+    </body>
+</html>
