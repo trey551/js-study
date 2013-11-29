@@ -27,6 +27,7 @@
 	<script type="text/javascript">
 	var colors = ['red', 'green', 'black', 'pink', 'blue', 'yellow'];
 	var blocks = document.querySelectorAll('.block div');
+	var usedColor = [];
 	function randomColorIndex(arrLength){
 		var randomNum = Math.floor(Math.random() * arrLength);
 		return randomNum;
@@ -36,7 +37,7 @@
 			var colorsLength = colors.length;
 			var indexColor = randomColorIndex(colorsLength);
 			blocks[i].style.backgroundColor = colors[indexColor];
-			colors.splice(indexColor, 1);
+			usedColor.push(colors[indexColor]);
 		}
 	}
 
@@ -52,3 +53,4 @@
 Для случайности познакомится с объектом Math и его методом random. 
 Также важно следующее условие – уникальность, цвета не должны повторятся. 
 Если есть вопросы – you are welcome. -->
+
