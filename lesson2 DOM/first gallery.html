@@ -26,20 +26,18 @@
 <script type="text/javascript">
 	var slides = document.querySelectorAll('#gallery li');
 	var pager = document.querySelectorAll('#pager a');
-	function hideAllSlides(){
-		for(var i = 0; i < slides.length; i++){
-			slides[i].style.display = 'none';
-		}
-	}
-	hideAllSlides();
-	slides[0].style.display = 'block';
+	var active = 0;
 
 	for(var i = 0; i < pager.length; i++){
 		(function(){
 			var localIndex = i;
+			if(i != active){
+				slides[i].style.display = 'none';
+			}
 			pager[i].addEventListener('click', function(){
-				hideAllSlides();
+				slides[active].style.display = 'none';
 				slides[localIndex].style.display = 'block';
+				active = localIndex;
 			}, false);
 		})();
 	}

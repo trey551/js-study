@@ -5,34 +5,33 @@
     </head>
     <body>
         <input type="text" value='hiding text'/>
+        <input type="text" value='hiding text 2'/>
+        <input type="text" value='hiding text 3'/>
 
         <script type="text/javascript">
-            var inp = document.querySelector('input[type=text]');
-            var localVal = inp.value;
-            var active = true;
-
-
-            inp.addEventListener('focus', function(){
-                if(active){
-                    clearVal(inp);
-                }
-            }, false);
-            function clearVal(input){
-                input.value = '';
+            var inp = document.querySelectorAll('input[type=text]');
+            function placeholder(input){
+	            for(var i = 0; i < input.length; i++){
+		            (function(){
+			            var inpIndex = i;
+			            var indexVal = input[i].value ;
+			            input[inpIndex].addEventListener('focus', function(){
+				            if(input[inpIndex].value == indexVal){
+					            input[inpIndex].value = '';
+				            }
+			            }, false);
+			            input[inpIndex].addEventListener('blur', function(){
+				            if(input[inpIndex].value == indexVal || this.value == ''){
+					            input[inpIndex].value = indexVal;
+				            }
+			            }, false);
+		            })();
+	            }
             }
-
-            inp.addEventListener('blur', function(){
-                returnVal(inp);
-            }, false);
-
-            function returnVal(input){
-                if(input.value != ''){
-                    active = false;
-                }else{
-                    input.value = localVal;
-                    active = true;
-                }
-            }
+            placeholder(inp);
         </script>
     </body>
 </html>
+
+<!--завернуть все вфункцию с вход параметром input-->
+<!--избавиться от лишних функций-->
