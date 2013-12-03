@@ -9,26 +9,26 @@
         <input type="text" value='hiding text 3'/>
 
         <script type="text/javascript">
-            var inp = document.querySelectorAll('input[type=text]');
-            function placeholder(input){
-	            for(var i = 0; i < input.length; i++){
-		            (function(){
-			            var inpIndex = i;
-			            var indexVal = input[i].value ;
-			            input[inpIndex].addEventListener('focus', function(){
-				            if(input[inpIndex].value == indexVal){
-					            input[inpIndex].value = '';
-				            }
-			            }, false);
-			            input[inpIndex].addEventListener('blur', function(){
-				            if(input[inpIndex].value == indexVal || this.value == ''){
-					            input[inpIndex].value = indexVal;
-				            }
-			            }, false);
-		            })();
-	            }
+            var inpts = document.querySelectorAll('input[type=text]');
+
+            for (var i = 0; i < inpts.length; i++) {
+                placeholder(inpts[i]);
             }
-            placeholder(inp);
+
+            function placeholder(input) {
+                var value = input.value;
+
+                input.addEventListener('focus', function () {
+                    if (input.value == value) {
+                        input.value = '';
+                    }
+                }, false);
+                input.addEventListener('blur', function () {
+                    if (input.value == value || input.value == '') {
+                        input.value = value;
+                    }
+                }, false);
+            }
         </script>
     </body>
 </html>
