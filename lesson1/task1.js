@@ -17,22 +17,21 @@
 // console.log(sum);
 
 
-function numArr(start, end, makeZero){
+function numArr(start, end, makeZero) {
 	var numbers = [];
-	for(var i = start; i < end; i++){
-		if(i % 2 != 0 || makeZero == true){
+	for (var i = start; i < end; i++) {
+		if (i % 2 != 0 || makeZero == true) {
 			numbers[i] = i;
-		}else{
+		} else {
 			numbers[i] = 0;
 		}
 	}
 	return numbers;
 }
 
-var result = numArr(0, 50 , true);
+var result = numArr(0, 50, true);
 
 console.log(result);
-
 
 
 
