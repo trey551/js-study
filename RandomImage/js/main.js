@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', main, false);
 function main(){
-	var images = document.querySelectorAll('.holder img');
-	randomImages(images);
+    var holder = document.querySelector('.holder');
+    getRandomBlock(holder, {
+        selector: "div.holder img"
+    });
 }
 
-function randomImages(img){
-	function getRandomNumber(){
-		var randomNumber = Math.floor(Math.random() * img.length);
-		return randomNumber;
-	}
-	img[getRandomNumber()].style.display = "block";
+function getRandomBlock(holder, opts){
+    var blocks = document.querySelectorAll(opts.selector);
+    function getRandomNumber(num){
+        var randomNumber = Math.floor(Math.random() * num);
+        return randomNumber;
+    }
+    blocks[getRandomNumber(blocks.length)].style.display = "block";
 }
 
 
