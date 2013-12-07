@@ -22,39 +22,14 @@ input,
 textarea{
 	outline: none;
 }
-.tabs{
-	width:400px;
-	overflow:hidden;
+.holder{
+	width:111px;
 	margin:0 auto;
 }
-.tabs .tabset{
-	overflow:hidden;
+#pager{
 	text-align:center;
-	border:1px solid #000;
+	margin:10px;
 }
-.tabs .tabset li{
-	display:inline-block;
-	border-left:1px solid #000;
-	width:30%;
-}
-.tabs .tabset li:first-child{
-	border:none;
-}
-.tabs .tabset li a{
-	display:block;
-	padding:10px 20px;
-}
-.tabs .tabset li a:hover{
-	color:green;
-}
-.tabs .tabset li.active a{
-	color:red;
-}
-.tab-content{
-	overflow:hidden;
-	border:1px solid #000;
-	border-width:0 1px 1px;
-}
-.tab-content div{
-	padding:10px;
+#pager a{
+	margin:0 10px;
 }
