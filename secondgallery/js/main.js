@@ -18,8 +18,8 @@ function main() {
 
 function gallery(holder, opts) {
     this.active = 0;
-    this.slides = opts.slides;
-    this.links = opts.links;
+    this.slides = document.querySelectorAll(opts.slides);
+    this.links = document.querySelectorAll(opts.links);
 
     this.hideSlides();
     this.addEvents();
@@ -27,9 +27,8 @@ function gallery(holder, opts) {
 
 gallery.prototype.hideSlides = function() {
     var self = this;
-    var slides = document.querySelectorAll(this.slides);
 
-    Array.prototype.forEach.call(slides, function(slide, i) {
+    Array.prototype.forEach.call(this.slides, function(slide, i) {
         if (i != self.active) {
             slide.style.display = "none";
         }
@@ -38,10 +37,8 @@ gallery.prototype.hideSlides = function() {
 
 gallery.prototype.addEvents = function() {
     var self = this;
-    var links = document.querySelectorAll(this.links);
 
-    console.log(links);
-    Array.prototype.forEach.call(links, function(link, i) {
+    Array.prototype.forEach.call(this.links, function(link, i) {
         link.addEventListener("click", function() {
             self.active = i;
             self.hideSlides(self.active);
@@ -52,6 +49,5 @@ gallery.prototype.addEvents = function() {
 }
 
 gallery.prototype.showSlide = function(index) {
-    var slides = document.querySelectorAll(this.slides);
-    slides[index].style.display = "block";
+    this.slides[index].style.display = "block";
 }
