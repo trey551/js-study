@@ -1,0 +1,60 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}fieldset,img{border:0;}img,object,embed{vertical-align:bottom;}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;}q:before,q:after{content:'';}a *{cursor:pointer;}
+
+html{
+	height:100%;
+	min-width:1000px;
+	background:#fff;
+}
+body{
+	font:11px/1.2 Arial, Helvetica, sans-serif;
+	min-height:100%;
+	min-width:1000px;
+	position:relative;
+	color:#000;
+}
+a{
+	color:#00f;
+}
+a:hover{
+	text-decoration:none;
+}
+input,
+textarea{
+	outline: none;
+}
+.tabs{
+	width:400px;
+	overflow:hidden;
+	margin:0 auto;
+}
+.tabs .tabset{
+	overflow:hidden;
+	text-align:center;
+	border:1px solid #000;
+}
+.tabs .tabset li{
+	display:inline-block;
+	border-left:1px solid #000;
+	width:30%;
+}
+.tabs .tabset li:first-child{
+	border:none;
+}
+.tabs .tabset li a{
+	display:block;
+	padding:10px 20px;
+}
+.tabs .tabset li a:hover{
+	color:green;
+}
+.tabs .tabset li.active a{
+	color:red;
+}
+.tab-content{
+	overflow:hidden;
+	border:1px solid #000;
+	border-width:0 1px 1px;
+}
+.tab-content div{
+	padding:10px;
+}
