@@ -4,34 +4,44 @@
 document.addEventListener('DOMContentLoaded', main, false);
 
 function main() {
-    var slides = document.querySelectorAll('#gallery li');
-    var links = document.querySelectorAll('#pager a');
+    // var slides = document.querySelectorAll('#gallery li');
+    // var links = document.querySelectorAll('#pager a');
 
-    var gall = new gallery(slides, links);
+    var holder = document.querySelector('.holder');
+
+    var gall = new gallery(holder, {
+        slides: "#gallery li",
+        links: "#pager a"
+    });
 }
 
 
-function gallery(slides, links) {
+function gallery(holder, opts) {
     this.active = 0;
-    this.slides = slides;
-    this.links = links;
+    this.slides = opts.slides;
+    this.links = opts.links;
 
-    this.hideSlides(this.active);
-    this.addEvents(slides);
+    this.hideSlides();
+    this.addEvents();
 }
 
-gallery.prototype.hideSlides = function(active) {
-    Array.prototype.forEach.call(this.slides, function(slide, i) {
-        if (i != active) {
+gallery.prototype.hideSlides = function() {
+    var self = this;
+    var slides = document.querySelectorAll(this.slides);
+
+    Array.prototype.forEach.call(slides, function(slide, i) {
+        if (i != self.active) {
             slide.style.display = "none";
         }
     });
 };
 
-gallery.prototype.addEvents = function(slides) {
+gallery.prototype.addEvents = function() {
     var self = this;
+    var links = document.querySelectorAll(this.links);
 
-    Array.prototype.forEach.call(this.links, function(link, i) {
+    console.log(links);
+    Array.prototype.forEach.call(links, function(link, i) {
         link.addEventListener("click", function() {
             self.active = i;
             self.hideSlides(self.active);
@@ -42,5 +52,6 @@ gallery.prototype.addEvents = function(slides) {
 }
 
 gallery.prototype.showSlide = function(index) {
-    this.slides[index].style.display = "block";
+    var slides = document.querySelectorAll(this.slides);
+    slides[index].style.display = "block";
 }
