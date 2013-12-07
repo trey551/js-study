@@ -18,8 +18,8 @@ function main() {
 
 function gallery(holder, opts) {
     this.active = 0;
-    this.slides = document.querySelectorAll(opts.slides);
-    this.links = document.querySelectorAll(opts.links);
+    this.slides = holder.querySelectorAll(opts.slides);
+    this.links = holder.querySelectorAll(opts.links);
 
     this.hideSlides();
     this.addEvents();
