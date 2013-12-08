@@ -1,0 +1,14 @@
+.slide {
+    width:100%;
+    overflow: hidden;
+    background: green;
+}
+
+.holder {
+    width:100px;
+    margin: 0 auto 20px;
+    border: 1px solid red;
+}
+.holder.opened .opener{
+	color:red;
+}
