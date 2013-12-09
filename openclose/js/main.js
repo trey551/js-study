@@ -17,6 +17,7 @@ function OpenClose(holder, opts) {
     this.openSlide = holder.querySelector(opts.openSlide);
     this.slides = holder.querySelector(opts.slides);
     this.setPosition = opts.setPosition;
+    this.opts = opts;
 
     this.toggleSlide();
     this.addEvents();
@@ -30,7 +31,7 @@ OpenClose.prototype.addEvents = function() {
 }
 
 OpenClose.prototype.toggleSlide = function() {
-    if (this.setPosition) {
+    if (this.opts.setPosition) {
         this.showSlide();
     } else {
         this.hideSlide();
@@ -39,10 +40,10 @@ OpenClose.prototype.toggleSlide = function() {
 
 OpenClose.prototype.showSlide = function() {
     this.slides.style.display = "block";
-    this.setPosition = false;
+    this.opts.setPosition = false;
 }
 
 OpenClose.prototype.hideSlide = function() {
     this.slides.style.display = "none";
-    this.setPosition = true;
+    this.opts.setPosition = true;
 }
