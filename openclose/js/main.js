@@ -16,7 +16,6 @@ function OpenClose(holder, opts) {
     this.holder = holder;
     this.openSlide = holder.querySelector(opts.openSlide);
     this.slides = holder.querySelector(opts.slides);
-    this.setPosition = opts.setPosition;
     this.opts = opts;
 
     this.toggleSlide();
