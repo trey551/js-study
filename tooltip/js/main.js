@@ -18,10 +18,11 @@ function tooltip(elem, opts) {
     this.tooltipAttrVal = this.elem.getAttribute(this.tooltipAttr);
     this.positionAttr = opts.positionAttr;
     this.positionAttrVal = this.elem.getAttribute(this.positionAttr);
+    this.heightElem = this.elem.clientHeight;
+    this.widthElem = this.elem.clientWidth;
 
     this.showTooltip();
     this.hideTooltip();
-
 }
 
 tooltip.prototype.showTooltip = function() {
@@ -43,22 +44,22 @@ tooltip.prototype.createTooltip = function() {
     document.body.appendChild(this.createdTooltip);
     this.createdTooltip.classList.add("tooltip");
     this.createdTooltip.style.position = "absolute";
-    this.tooltipPosition();
+    // this.tooltipPosition();
     this.createdTooltip.innerHTML = this.tooltipAttrVal;
-}
+    this.heightTooltip = this.createdTooltip.clientHeight;
+    this.widthTooltip = this.createdTooltip.clientWidth;
 
-tooltip.prototype.tooltipPosition = function() {
     if (this.positionAttrVal == "top") {
-        this.createdTooltip.style.top = this.elemPosition.top  + "px";
-        this.createdTooltip.style.left = this.elemPosition.left + "px";
+        this.createdTooltip.style.top = this.elemPosition.top - this.heightTooltip + "px";
+        this.createdTooltip.style.left = this.elemPosition.left - ((this.widthTooltip / 2) - (this.widthElem / 2)) + "px";
     } else if (this.positionAttrVal == "left") {
-        this.createdTooltip.style.top = this.elemPosition.top + "px";
-        this.createdTooltip.style.left = this.elemPosition.left + "px";
+        this.createdTooltip.style.top = this.elemPosition.top - ((this.heightTooltip / 2) - (this.heightElem / 2)) + "px";
+        this.createdTooltip.style.left = this.elemPosition.left - this.widthTooltip -  5 + "px";
     } else if (this.positionAttrVal == "bottom") {
         this.createdTooltip.style.top = this.elemPosition.bottom + "px";
-        this.createdTooltip.style.left = this.elemPosition.left + "px";
+        this.createdTooltip.style.left = this.elemPosition.left - ((this.widthTooltip / 2) - (this.widthElem / 2)) + "px";
     } else if (this.positionAttrVal == "right") {
-        this.createdTooltip.style.top = this.elemPosition.top + "px";
-        this.createdTooltip.style.left = this.elemPosition.right + "px";
+        this.createdTooltip.style.top = this.elemPosition.top - ((this.heightTooltip / 2) - (this.heightElem / 2)) + "px";
+        this.createdTooltip.style.left = this.elemPosition.right +  5 + "px";
     }
 }
