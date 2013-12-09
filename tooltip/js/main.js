@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', main, false);
 function main() {
     var elems = document.querySelectorAll('.tooltip-link');
 
+    console.log(elems);
+
     Array.prototype.forEach.call(elems, function(elem, i) {
         var tool = new tooltip(elem, {
             tooltipAttr: "data-tooltip",
@@ -43,23 +45,29 @@ tooltip.prototype.createTooltip = function() {
     this.createdTooltip = document.createElement('div');
     document.body.appendChild(this.createdTooltip);
     this.createdTooltip.classList.add("tooltip");
-    this.createdTooltip.style.position = "absolute";
-    // this.tooltipPosition();
     this.createdTooltip.innerHTML = this.tooltipAttrVal;
     this.heightTooltip = this.createdTooltip.clientHeight;
     this.widthTooltip = this.createdTooltip.clientWidth;
-
+    this.createdTooltip.style.position = "absolute";
     if (this.positionAttrVal == "top") {
         this.createdTooltip.style.top = this.elemPosition.top - this.heightTooltip + "px";
         this.createdTooltip.style.left = this.elemPosition.left - ((this.widthTooltip / 2) - (this.widthElem / 2)) + "px";
     } else if (this.positionAttrVal == "left") {
         this.createdTooltip.style.top = this.elemPosition.top - ((this.heightTooltip / 2) - (this.heightElem / 2)) + "px";
-        this.createdTooltip.style.left = this.elemPosition.left - this.widthTooltip -  5 + "px";
+        this.createdTooltip.style.left = this.elemPosition.left - this.widthTooltip - 5 + "px";
     } else if (this.positionAttrVal == "bottom") {
         this.createdTooltip.style.top = this.elemPosition.bottom + "px";
         this.createdTooltip.style.left = this.elemPosition.left - ((this.widthTooltip / 2) - (this.widthElem / 2)) + "px";
     } else if (this.positionAttrVal == "right") {
         this.createdTooltip.style.top = this.elemPosition.top - ((this.heightTooltip / 2) - (this.heightElem / 2)) + "px";
-        this.createdTooltip.style.left = this.elemPosition.right +  5 + "px";
+        this.createdTooltip.style.left = this.elemPosition.right + 5 + "px";
     }
 }
+
+
+//объединить события в один метод
+//данные для расчета не в this а в переменную
+//вычислять позиции элементов только по событию
+//использовать swith case
+// подсчет каждой позиции в отдельном методе 
+//поработать над названиями переменных
