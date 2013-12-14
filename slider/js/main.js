@@ -34,7 +34,6 @@ slider.prototype.createElements = function() {
 
 slider.prototype.addEvents = function() {
     var self = this;
-    console.log(self.percen);
     this.slider.addEventListener('mousedown', function() {
         document.addEventListener('mousemove', handler, false);
         function handler(event) {
@@ -54,6 +53,7 @@ slider.prototype.addEvents = function() {
         }, false);
     }, false);
 }
+
 
 
 
