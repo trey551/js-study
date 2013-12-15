@@ -3,57 +3,85 @@ document.addEventListener('DOMContentLoaded', main, false);
 function main() {
     var holder = document.querySelectorAll('.slider_holder');
 
+    var onSlide = function (percent) {
+        var input = document.querySelector("#test");
+        input.value = percent;
+    }
+
     for (var i = 0; i < holder.length; i++) {
-        var slide = new slider(holder[i], {
-            onSlide: function(percent) {
-                console.log("ddd");
-            }
+        var slider = new Slider(holder[i], {
+            onSlide: onSlide,
+            min: 100,
+            max: 1000
         });
     }
+
+    var elem = document.querySelector("#anim-test");
+
+    var animation = move(elem);
+
+    animation.add('margin-left', 200).end(function () {
+        alert("anim complete!");
+    });
+
+    //запилить анимацию на клик
+    //заполнение выделенной области
+    //сделать опции минимум и максимум в onSlide передавать посчитаный value и проценты на всякий случай
+
 }
 
-function slider(holder, opts) {
+function Slider(holder, opts) {
     this.holder = holder;
+    this.opts = opts;
 
     this.createElements();
+    this.setStyles();
     this.addEvents();
 }
 
-slider.prototype.createElements = function() {
+Slider.prototype.createElements = function() {
     this.slider = document.createElement('a');
     this.holder.appendChild(this.slider);
     this.slider.classList.add('slider');
+}
+
+Slider.prototype.setStyles = function () {
     this.slider.style.left = 0 - (this.slider.clientWidth / 2) + "px";
-
-    this.percentHolder = document.createElement('span');
-    this.holder.appendChild(this.percentHolder);
-    this.percentHolder.classList.add('percent_holder');
-    this.percentHolder.innerText = 0 + "%";
-
 }
 
-slider.prototype.addEvents = function() {
-    var self = this;
-    this.slider.addEventListener('mousedown', function() {
-        document.addEventListener('mousemove', handler, false);
-        function handler(event) {
-            var holderPosition = self.holder.getBoundingClientRect();
-            var sliderPosition = self.slider.getBoundingClientRect();
-            var pr = (sliderPosition.left - holderPosition.left) + (self.slider.clientWidth / 2);
-            var percent = Math.floor(pr / self.holder.clientWidth * 100);
-            self.percentHolder.innerText = percent + '%';
-            var p = event.x - holderPosition.left;
-            if (p >= 0 && p <= self.holder.clientWidth) {
-                self.slider.style.left = p - (self.slider.clientWidth / 2) + "px";
-            }
-            event.preventDefault();
-        }
-        document.addEventListener('mouseup', function() {
-            document.removeEventListener('mousemove', handler, false);
-        }, false);
-    }, false);
+Slider.prototype.addEvents = function() {
+    this.bindedMouseMove = this.onMouseMove.bind(this);
+    this.bindedMouseDown = this.onMouseDown.bind(this);
+    this.bindedMouseUp = this.onMouseUp.bind(this);
+
+    this.slider.addEventListener('mousedown', this.bindedMouseDown, false);
 }
 
+Slider.prototype.onMouseDown = function () {
+    document.addEventListener('mousemove', this.bindedMouseMove, false);
+    document.addEventListener('mouseup', this.bindedMouseUp, false);
+}
+
+Slider.prototype.onMouseUp = function () {
+    document.removeEventListener('mousemove', this.bindedMouseMove, false);
+    document.removeEventListener('mouseup', this.bindedMouseUp, false);
+}
+
+Slider.prototype.onMouseMove = function (event) {
+    var holderPosition = this.holder.getBoundingClientRect();
+    var sliderPosition = this.slider.getBoundingClientRect();
+    var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
+    var percent = Math.floor(pr / this.holder.clientWidth * 100);
+
+    this.opts.onSlide(percent);
+
+    var p = event.x - holderPosition.left;
+    if (p >= 0 && p <= this.holder.clientWidth) {
+        this.slider.style.left = p - (this.slider.clientWidth / 2) + "px";
+    }
+
+    event.preventDefault();
+}
 
 
 

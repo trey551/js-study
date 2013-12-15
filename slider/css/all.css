@@ -48,3 +48,8 @@ a:hover{
 	top:3px;
 	left:48%;
 }
+#anim-test {
+    height: 20px;
+    width:20px;
+    background: red;
+}
