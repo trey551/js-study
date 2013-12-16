@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', main, false);
 function main() {
     var holder = document.querySelectorAll('.slider_holder');
 
-    var onSlide = function (percent) {
+    var onSlide = function (percent, val) {
         var input = document.querySelector("#test");
-        input.value = percent;
+        input.value = val + "items :" + percent + "%";
     }
 
     for (var i = 0; i < holder.length; i++) {
@@ -34,11 +34,14 @@ function Slider(holder, opts) {
     this.holder = holder;
     this.opts = opts;
     this.percent = 0;
+    this.min = opts.min;
+    this.max = opts.max;
+    this.val = opts.min;
 
     this.createElements();
     this.setStyles();
     this.addEvents();
-    this.opts.onSlide(this.percent);
+    this.opts.onSlide(this.percent, this.val);
 }
 
 Slider.prototype.createElements = function() {
@@ -48,7 +51,7 @@ Slider.prototype.createElements = function() {
 
     this.progress = document.createElement('div');
     this.holder.appendChild(this.progress);
-    this.progress.classList.add('progress');
+    this.progress.classList.add('progress')
     this.progress.style.width = 0 + "%";
     this.progress.style.height = 100 + "%";
     this.progress.style.backgroundColor = "green";
@@ -79,35 +82,33 @@ Slider.prototype.onMouseUp = function () {
 }
 
 Slider.prototype.onMouseMove = function (event) {
-    
-    var holderPosition = this.holder.getBoundingClientRect();
-    var sliderPosition = this.slider.getBoundingClientRect();
-    var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
-    this.percent = Math.floor(pr / this.holder.clientWidth * 100);
-    var p = event.x - holderPosition.left;
-    var setPosition = p - (this.slider.clientWidth / 2);
-    if (p >= 0 && p <= this.holder.clientWidth) {
-        this.slider.style.left = setPosition + "px";
-        this.progress.style.width = setPosition + "px";
-    }
-    this.opts.onSlide(this.percent);
+    this.work(event);
     event.preventDefault();
 }
 
 Slider.prototype.work = function (event){
     var holderPosition = this.holder.getBoundingClientRect();
     var sliderPosition = this.slider.getBoundingClientRect();
+
+    // percent calc
     var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
     this.percent = Math.floor(pr / this.holder.clientWidth * 100);
+
+    // val calc
+    var valMin =  pr + this.min;
+    var valMax = pr + this.max;
+    this.val = Math.floor(pr + (valMin / valMax) * this.max);
+
     var p = event.x - holderPosition.left;
     var setPosition = p - (this.slider.clientWidth / 2);
     if (p >= 0 && p <= this.holder.clientWidth) {
-        move(this.slider).set().end();
-        move(this.progress).set().end();
+        // move(this.slider).set().end();
+        // move(this.progress).set().end();
         this.slider.style.left = setPosition + "px";
         this.progress.style.width = setPosition + "px";
     }
-    this.opts.onSlide(this.percent);
+    this.opts.onSlide(this.percent, this.val);
+
 }
 
 
