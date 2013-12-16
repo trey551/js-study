@@ -16,13 +16,13 @@ function main() {
         });
     }
 
-    var elem = document.querySelector("#anim-test");
+    // var elem = document.querySelector("#anim-test");
 
-    var animation = move(elem);
+    // var animation = move(elem);
 
-    animation.add('margin-left', 200).end(function () {
-        alert("anim complete!");
-    });
+    // animation.add('margin-left', 200).end(function () {
+    //     alert("anim complete!");
+    // });
 
     //запилить анимацию на клик
     //заполнение выделенной области
@@ -33,16 +33,25 @@ function main() {
 function Slider(holder, opts) {
     this.holder = holder;
     this.opts = opts;
+    this.percent = 0;
 
     this.createElements();
     this.setStyles();
     this.addEvents();
+    this.opts.onSlide(this.percent);
 }
 
 Slider.prototype.createElements = function() {
     this.slider = document.createElement('a');
     this.holder.appendChild(this.slider);
     this.slider.classList.add('slider');
+
+    this.progress = document.createElement('div');
+    this.holder.appendChild(this.progress);
+    this.progress.classList.add('progress');
+    this.progress.style.width = 0 + "%";
+    this.progress.style.height = 100 + "%";
+    this.progress.style.backgroundColor = "green";
 }
 
 Slider.prototype.setStyles = function () {
@@ -54,12 +63,14 @@ Slider.prototype.addEvents = function() {
     this.bindedMouseDown = this.onMouseDown.bind(this);
     this.bindedMouseUp = this.onMouseUp.bind(this);
 
-    this.slider.addEventListener('mousedown', this.bindedMouseDown, false);
+    this.holder.addEventListener('mousedown', this.bindedMouseDown, false);
 }
 
-Slider.prototype.onMouseDown = function () {
+Slider.prototype.onMouseDown = function (event) {
+    this.work(event);
     document.addEventListener('mousemove', this.bindedMouseMove, false);
     document.addEventListener('mouseup', this.bindedMouseUp, false);
+
 }
 
 Slider.prototype.onMouseUp = function () {
@@ -68,19 +79,35 @@ Slider.prototype.onMouseUp = function () {
 }
 
 Slider.prototype.onMouseMove = function (event) {
+    
     var holderPosition = this.holder.getBoundingClientRect();
     var sliderPosition = this.slider.getBoundingClientRect();
     var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
-    var percent = Math.floor(pr / this.holder.clientWidth * 100);
-
-    this.opts.onSlide(percent);
-
+    this.percent = Math.floor(pr / this.holder.clientWidth * 100);
     var p = event.x - holderPosition.left;
+    var setPosition = p - (this.slider.clientWidth / 2);
     if (p >= 0 && p <= this.holder.clientWidth) {
-        this.slider.style.left = p - (this.slider.clientWidth / 2) + "px";
+        this.slider.style.left = setPosition + "px";
+        this.progress.style.width = setPosition + "px";
     }
-
+    this.opts.onSlide(this.percent);
     event.preventDefault();
+}
+
+Slider.prototype.work = function (event){
+    var holderPosition = this.holder.getBoundingClientRect();
+    var sliderPosition = this.slider.getBoundingClientRect();
+    var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
+    this.percent = Math.floor(pr / this.holder.clientWidth * 100);
+    var p = event.x - holderPosition.left;
+    var setPosition = p - (this.slider.clientWidth / 2);
+    if (p >= 0 && p <= this.holder.clientWidth) {
+        move(this.slider).set().end();
+        move(this.progress).set().end();
+        this.slider.style.left = setPosition + "px";
+        this.progress.style.width = setPosition + "px";
+    }
+    this.opts.onSlide(this.percent);
 }
 
 
