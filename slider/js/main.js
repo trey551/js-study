@@ -83,12 +83,13 @@ Slider.prototype.onMouseUp = function () {
 
 Slider.prototype.onMouseMove = function (event) {
     this.work(event);
-    event.preventDefault();
 }
 
 Slider.prototype.work = function (event){
     var holderPosition = this.holder.getBoundingClientRect();
     var sliderPosition = this.slider.getBoundingClientRect();
+    move(this.slider).set().end();
+    move(this.progress).set().end();
 
     // percent calc
     var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
@@ -102,13 +103,11 @@ Slider.prototype.work = function (event){
     var p = event.x - holderPosition.left;
     var setPosition = p - (this.slider.clientWidth / 2);
     if (p >= 0 && p <= this.holder.clientWidth) {
-        // move(this.slider).set().end();
-        // move(this.progress).set().end();
         this.slider.style.left = setPosition + "px";
         this.progress.style.width = setPosition + "px";
     }
     this.opts.onSlide(this.percent, this.val);
-
+    event.preventDefault();
 }
 
 
