@@ -53,3 +53,7 @@ a:hover{
     width:20px;
     background: red;
 }
+.gallery div {
+    display: none;
+    font-size: 40px;
+}

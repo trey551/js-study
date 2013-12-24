@@ -15,19 +15,6 @@ function main() {
             max: 1000
         });
     }
-
-    // var elem = document.querySelector("#anim-test");
-
-    // var animation = move(elem);
-
-    // animation.add('margin-left', 200).end(function () {
-    //     alert("anim complete!");
-    // });
-
-    //запилить анимацию на клик
-    //заполнение выделенной области
-    //сделать опции минимум и максимум в onSlide передавать посчитаный value и проценты на всякий случай
-
 }
 
 function Slider(holder, opts) {
@@ -66,11 +53,12 @@ Slider.prototype.addEvents = function() {
     this.bindedMouseDown = this.onMouseDown.bind(this);
     this.bindedMouseUp = this.onMouseUp.bind(this);
 
-    this.holder.addEventListener('mousedown', this.bindedMouseDown, false);
+    this.holder.addEventListener('click', this.onHolderClick.bind(this), false);
+
+    this.slider.addEventListener('mousedown', this.bindedMouseDown, false);
 }
 
 Slider.prototype.onMouseDown = function (event) {
-    this.work(event);
     document.addEventListener('mousemove', this.bindedMouseMove, false);
     document.addEventListener('mouseup', this.bindedMouseUp, false);
 
@@ -82,62 +70,54 @@ Slider.prototype.onMouseUp = function () {
 }
 
 Slider.prototype.onMouseMove = function (event) {
-    this.work(event);
-}
+    var x = this.getXbyPageX(event.pageX);
 
-Slider.prototype.work = function (event){
-    var holderPosition = this.holder.getBoundingClientRect();
-    var sliderPosition = this.slider.getBoundingClientRect();
-    move(this.slider).set().end();
-    move(this.progress).set().end();
+    this.slider.style.left = x + "px";
+    this.progress.style.width = x + "px";
 
-    // percent calc
-    var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
-    this.percent = Math.floor(pr / this.holder.clientWidth * 100);
-
-    // val calc
-    var valMin =  pr + this.min;
-    var valMax = pr + this.max;
-    this.val = Math.floor(pr + (valMin / valMax) * this.max);
-
-    var p = event.x - holderPosition.left;
-    var setPosition = p - (this.slider.clientWidth / 2);
-    if (p >= 0 && p <= this.holder.clientWidth) {
-        this.slider.style.left = setPosition + "px";
-        this.progress.style.width = setPosition + "px";
-    }
-    this.opts.onSlide(this.percent, this.val);
     event.preventDefault();
 }
 
+Slider.prototype.onHolderClick = function (event) {
+    var x = this.getXbyPageX(event.pageX);
 
+    this.setSliderPosition(x);
 
-// <div class="slider"></div>
-// new Slider(holder, {
-// onSlide:function(){
+    event.preventDefault();
+}
 
-// }
+Slider.prototype.setSliderPositionByPercent = function (percent) {
+    var x = this.holder.clientWidth * percent - this.slider.clientWidth / 2;
 
-// })
-// slide: function () {
-// this.options.onSlide(slideposition)
-// min:0,
-// max:100
-// link.on("mousedown", function(){
-// document.on("mousemove", function(){
+    this.setSliderPosition(x);
+}
 
-// })
-// document.on("mouseup", function(){
-// document.off("mousemove", "mouseup")
+Slider.prototype.setSliderPosition = function (x) {
+    move(this.slider).set().end();
+    this.slider.style.left = x + "px";
 
-// })
+    move(this.progress).set().end();
+    this.progress.style.width = x + "px";
+}
 
-// })
-// link.addEventList("mousemove", function(event){
-// event.target
-// event.pageX
-// event.pageY
+Slider.prototype.getXbyPageX = function (pageX){
+    var holderPosition = this.holder.getBoundingClientRect();
+    var sliderPosition = this.slider.getBoundingClientRect();
 
+    // percent calc
+    var pr = (sliderPosition.left - holderPosition.left) + (this.slider.clientWidth / 2);
 
-// event.preventDefault(); - отключает ссылки и выделение докмента и другие действия по умолчанию
-// })
+    this.percent = Math.floor(pr / this.holder.clientWidth * 100);
+
+    var p = pageX - holderPosition.left;
+
+    if (p < 0) {
+        p = 0;
+    } else if (p > this.holder.clientWidth) {
+        p = this.holder.clientWidth;
+    }
+
+    var setPosition = p - (this.slider.clientWidth / 2);
+
+    return setPosition;
+}
