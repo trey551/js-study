@@ -34,6 +34,8 @@ document.addEventListener("DOMContentLoaded", function (){
 
 //MOVE.JS запилить тултип фейд
 
+
+
 //когда наводишь, появляется через пол секунды после того как навел.
 
 
