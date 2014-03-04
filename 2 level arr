@@ -1,0 +1,22 @@
+function arr2Level() {
+	var arr = [];
+	var n = 10;
+	for (var i = 0; i < n; i++) {
+		for (var j = 0; j < n; j++) {
+			arr[i][j] = Math.floor((Math.random() * 9) + 1);
+		};
+	};
+	show(arr);
+	function show(arr){
+		for (var i = 0; i < arr.length; i++) {
+			document.write(arr[i] + "<br>")
+		};
+	}
+	var summ = 0;
+	for (var i = 0; i < n; i++) {
+		summ = summ + arr[i][i];
+	};
+	console.log(summ);
+}
+
+arr2Level();
