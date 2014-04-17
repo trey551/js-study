@@ -1,0 +1,220 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}fieldset,img{border:0;}img,object,embed{vertical-align:bottom;}address,caption,cite,code,dfn,em,th,var{font-style:normal;font-weight:normal;}ol,ul{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;}q:before,q:after{content:'';}a *{cursor:pointer;}
+
+html{
+	height:100%;
+	min-width:1000px;
+	background:#ccc;
+}
+body{
+	font:14px/1.2 Arial, Helvetica, sans-serif;
+	min-height:100%;
+	min-width:1000px;
+	position:relative;
+	color:#333;
+}
+a{
+	color:#000;
+	text-decoration:none;
+}
+input,
+textarea{
+	outline: none;
+}
+#wrapper{
+	width:950px;
+	overflow:hidden;
+	margin:20px auto 0;
+	background:#fff;
+	border:1px solid #999;
+	-webkit-border-radius:5px 5px 5px 5px;
+	-moz-border-radius:5px 5px 5px 5px;
+	border-radius:5px 5px 5px 5px;
+}
+#gallery{
+	padding:0 10px 10px;
+}
+#gallery .holder{
+	width:100%;
+	height:300px;
+	position:relative;
+}
+#gallery .holder li{
+	position:absolute;
+	top:0;
+	left:0;
+	background:#fff;
+}
+#gallery .holder img{
+	float:left;
+	margin:10px 10px 0 0;
+}
+
+#gallery .holder .text{
+	overflow:hidden;
+	background:#ccc;
+	border:1px solid #afafaf;
+	border-width:0 1px 1px;
+	-webkit-border-radius:0 0 5px 5px;
+	-moz-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+	padding:10px;
+	-webkit-box-shadow:1px 1px 12px -6px #000;
+	-moz-box-shadow:1px 1px 12px -6px #000;
+	box-shadow:1px 1px 12px -6px #000;
+}
+
+#gallery .holder .text p{
+	margin:5px 0 0 0;
+}
+#gallery .holder .text p:first-child{
+	margin:0;
+}
+#control{
+	width:100%;
+	height:50px;
+	overflow:hidden;
+	position:relative;
+	border-top:1px solid #afafaf;
+}
+#control .prev,
+#control .next{
+	position:absolute;
+	top:50%;
+	padding:5px 0;
+	border:1px solid #ccc;
+	-webkit-border-radius:3px 3px 3px 3px;
+	-moz-border-radius:3px 3px 3px 3px;
+	border-radius:3px 3px 3px 3px;
+	width:30px;
+	text-align:center;
+	margin:-10px 0 0 0;
+}
+#control .prev:hover,
+#control .next:hover{
+	color:#fff;
+	background:#ccc;
+}
+#control .prev:active,
+#control .next:active{
+	border:1px solid #000;
+}
+#control .prev{
+	left:0;
+}
+#control .next{
+	right:0;
+}
+#control ul{
+	text-align:center;
+	margin:13px 0 0 0;
+	position:relative;
+}
+#control li{
+	display:inline-block;
+	-webkit-border-radius:3px 3px 3px 3px;
+	-moz-border-radius:3px 3px 3px 3px;
+	border-radius:3px 3px 3px 3px;
+	/*margin:0 0 0 10px;*/
+}
+#control li:first-child{
+	margin:0;
+}
+#control li:hover{
+	-webkit-border-radius:3px 3px 3px 3px;
+	-moz-border-radius:3px 3px 3px 3px;
+	border-radius:3px 3px 3px 3px;
+	outline:1px solid #ccc;
+}
+#control li.active{
+	outline:none;
+}
+#control li.active a{
+	color:#fff;
+}
+#control li a{
+	display:block;
+	padding:8px 10px;
+	position:relative;
+	z-index:10;
+	color:#000;
+}
+#control li.hover{
+	position:absolute;
+	top:0;
+	left:0;
+	background:#444;
+	color:#fff;
+	padding:8px 0;
+	-webkit-border-radius:3px 3px 3px 3px;
+	-moz-border-radius:3px 3px 3px 3px;
+	border-radius:3px 3px 3px 3px;
+	margin:0;
+}
+
+/*css3 animation*/
+#gallery .holder img{
+	opacity:0;
+	-webkit-animation: imgStartAnim 0.4s ease-in 0.1s both;
+	-moz-animation: imgStartAnim 0.4s ease-in 0.1s both;
+	-o-animation: imgStartAnim 0.4s ease-in 0.1s both;
+	-ms-animation: imgStartAnim 0.4s ease-in 0.1s both;
+	animation: imgStartAnim 0.4s ease-in 0.1s both;
+}
+#gallery .holder .text{
+	position:relative;
+	top:-200px;
+	-webkit-animation: textStartAnim 0.4s ease-in 0.1s both;
+	-moz-animation: textStartAnim 0.4s ease-in 0.1s both;
+	-o-animation: textStartAnim 0.4s ease-in 0.1s both;
+	-ms-animation: textStartAnim 0.4s ease-in 0.1s both;
+	animation: textStartAnim 0.4s ease-in 0.1s both;
+}
+#gallery .holder .finish img{
+	opacity:1;
+	-webkit-animation: imgFinishAnim 0.4s ease-in 0.1s both;
+	-moz-animation: imgFinishAnim 0.4s ease-in 0.1s both;
+	-o-animation: imgFinishAnim 0.4s ease-in 0.1s both;
+	-ms-animation: imgFinishAnim 0.4s ease-in 0.1s both;
+	animation: imgFinishAnim 0.4s ease-in 0.1s both;
+}
+#gallery .holder .finish .text{
+	top:0;
+	-webkit-animation: textFinishAnim 0.4s ease-in 0.1s both;
+	-moz-animation: textFinishAnim 0.4s ease-in 0.1s both;
+	-o-animation: textFinishAnim 0.4s ease-in 0.1s both;
+	-ms-animation: textFinishAnim 0.4s ease-in 0.1s both;
+	animation: textFinishAnim 0.4s ease-in 0.1s both;
+}
+@-webkit-keyframes imgStartAnim{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@-moz-keyframes imgStartAnim{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+@-webkit-keyframes imgFinishAnim{
+	0%{opacity: 1;}
+	100%{opacity: 0;}
+}
+@-moz-keyframes imgFinishAnim{
+	0%{opacity: 1;}
+	100%{opacity: 0;}
+}
+@-webkit-keyframes textStartAnim{
+	0%{top:-200px; opacity:0;}
+	100%{top:0; opacity:1;}
+}
+@-moz-keyframes textStartAnim{
+	0%{top:-200px; opacity:0;}
+	100%{top:0; opacity:1;}
+}
+@-webkit-keyframes textFinishAnim{
+	0%{top:0; opacity:1;}
+	100%{top:-200px; opacity:0;}
+}
+@-moz-keyframes textFinishAnim{
+	0%{top:0; opacity:1;}
+	100%{top:-200px; opacity:0;}
+}
+/*css3 animation*/
