@@ -6,7 +6,7 @@ $(document).ready(function() {
 (function($) {
     $.fn.testCarousel = function(options) {
         var options = $.extend({
-            autoplay:       false,
+            autoplay:       true,
             pager:          true,
             slide:          "li",
             container:      ".holder",
@@ -15,118 +15,106 @@ $(document).ready(function() {
             autoslideDelay: 2500
         }, options);
 
+        var holder = this;
         var autoplay   = options.autoplay;
-        var container  = this.find(options.container);
-        var slide      = container.find(options.slide);
+        var container  = holder.find(options.container);
+        var slides      = container.find(options.slide);
         var delay      = options.autoslideDelay;
         var next       = options.nextBtn;
         var prev       = options.prevBtn;
         var pager      = options.pager;
         var activeIndx = 0;
+        var auto;
 
-        if(autoplay) {
-            auto = setInterval(nextSlide, delay);
-            this.hover(
-                function(){
-                    clearInterval(auto);
-                },
-                function(){
-                    auto = setInterval(nextSlide, delay);
-                }
-            )
-        }else{
-            container.hover(
-                function(){
-                    auto = setInterval(nextSlide, delay);
-                },
-                function(){
-                    clearInterval(auto);
-                }
-            )
-        }
-        if(pager){
-            createBtns();
-            choiseSlide();
-        }
-        $(next).on("click", function(){
-            nextSlide();
-        });
-        $(prev).on("click", function(){
-            prevSlide();
-        });
-        slide.each(function(i){
-            if(i != 0){
-                $(this).hide();
+        addEvents(holder);
+        init(holder);
+
+        function init() {
+            if(pager){
+                createBtns();
+                switchSlide();
             }
-        });
-        $("#control li:first").addClass("active");
-        var startPosition = $("#control ul li:first").position();
-        $(".hover").css({
-            top: startPosition.top,
-            left: startPosition.left,
-            width: $("#control ul li:first").width()
-        });
+            slides.each(function(i, slide){
+                if(i != 0){
+                    $(slide).hide();
+                }
+            });
+            var first = holder.find(".control li:first");
+            first.addClass("active");
+            var startPosition = first.position();
+            $(".hover").css({
+                top: startPosition.top,
+                left: startPosition.left,
+                width: first.width()
+            });
+        }
+        function addEvents() {
+            if(autoplay) {
+                auto = setInterval(nextSlide, delay);
+                holder.find(".control").hover(
+                    function(){
+                        clearInterval(auto);
+                    },
+                    function(){
+                        auto = setInterval(nextSlide, delay);
+                    }
+                )
+            }
 
+            $(next).on("click", function(){
+                nextSlide();
+            });
+            $(prev).on("click", function(){
+                prevSlide();
+            });
+
+            slides.find('.text').bind('oanimationend animationend webkitAnimationEnd', function () {
+                changeSlide();
+            });
+            slides.find('.text').bind('oanimationstart animationstart webkitAnimationStart', function () {
+                floatHover(holder.find(".control li").eq(activeIndx));
+            });
+        }
+        function changeSlide() {
+            slides.hide();
+            $(slides).eq(activeIndx).show();
+            slides.removeClass("closeSlide");
+            clearClass();
+        }
+        function clearClass() {
+            holder.find(".control li").removeClass("active");
+            holder.find(".control li").eq(activeIndx).addClass("active");
+        }
         function nextSlide() {
-            $(slide[activeIndx]).addClass("finish");
-            if(activeIndx < slide.length - 1){
+            $(slides).eq(activeIndx).addClass("closeSlide");
+            if(activeIndx < slides.length - 1){
                 activeIndx++;
             }else{
                 activeIndx = 0
             }
-            window.setTimeout(function(){
-                slide.hide();
-                $(slide[activeIndx]).show();
-                slide.removeClass("finish");
-            }, 500);
-            $("#control ul li").removeClass("active");
-            $("#control ul li").eq(activeIndx).addClass("active");
-
-            floatHover($("#control ul li").eq(activeIndx));
         }
         function prevSlide() {
-            $(slide[activeIndx]).addClass("finish");
+            $(slides).eq(activeIndx).addClass("closeSlide");
             if(activeIndx >= 1){
                 activeIndx--;
             }else{
-                activeIndx = slide.length - 1
+                activeIndx = slides.length - 1
             }
-            window.setTimeout(function(){
-                slide.hide();
-                $(slide[activeIndx]).show();
-                slide.removeClass("finish");
-            }, 500);
-            $("#control ul li").removeClass("active");
-            $("#control ul li").eq(activeIndx).addClass("active");
-
-            floatHover($("#control ul li").eq(activeIndx));
         }
         function createBtns() {
-            var controlContainer = $("<ul></ul>").prependTo("#control");
-            $(slide).each(function(i) {
-                var btnName = '<li><a href="#">' + $(this).attr("data-button") + '</a></li>';
+            var controlContainer = $("<ul></ul>").prependTo(".control");
+            $(slides).each(function(i, slide) {
+                var btnName = '<li><a href="#">' + $(slide).attr("data-button") + '</a></li>';
                 $(controlContainer).append(btnName);
             });
             $(controlContainer).append('<li class="hover">&#160;</li>');
         }
-        function choiseSlide() {
-            $("#control ul a").on("click", function() {
-                var str = $(this).text();
-                $(slide[activeIndx]).addClass("finish");
-                $("#control li").removeClass("active");
-                $(this).parent().addClass("active");
-                window.setTimeout(function(){
-                    $(slide).each(function(i) {
-                        var data = $(this).attr("data-button");
-                        if(str == data){
-                            slide.hide();
-                            activeIndx = i;
-                            $(this).show();
-                            slide.removeClass("finish");
-                        }
-                    })
-                }, 500);
-                floatHover($(this).parent());
+        function switchSlide() {
+            $(holder).find("li a").each(function(i, link) {
+                $(link).on("click", function () {
+                    slides.eq(activeIndx).addClass("closeSlide");
+                    activeIndx = i;
+                });
             });
         }
         function floatHover(el) {
