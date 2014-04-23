@@ -48,7 +48,6 @@ textarea{
 	float:left;
 	margin:10px 10px 0 0;
 }
-
 #gallery .holder .text{
 	overflow:hidden;
 	background:#ccc;
@@ -62,7 +61,6 @@ textarea{
 	-moz-box-shadow:1px 1px 12px -6px #000;
 	box-shadow:1px 1px 12px -6px #000;
 }
-
 #gallery .holder .text p{
 	margin:5px 0 0 0;
 }
@@ -88,6 +86,7 @@ textarea{
 	width:30px;
 	text-align:center;
 	margin:-10px 0 0 0;
+	z-index:10;
 }
 .control .prev:hover,
 .control .next:hover{
@@ -140,8 +139,6 @@ textarea{
 }
 .control li.hover{
 	position:absolute;
-	top:0;
-	left:0;
 	background:#444;
 	color:#fff;
 	padding:8px 0;
@@ -149,10 +146,14 @@ textarea{
 	-moz-border-radius:3px 3px 3px 3px;
 	border-radius:3px 3px 3px 3px;
 	margin:0;
-}
 
+	-webkit-transition: left 0.2s ease-out 0;
+	-moz-transition: left 0.2s ease-out 0;
+	-o-transition: left 0.2s ease-out 0;
+	transition: left 0.2s ease-out 0;
+}
 /*css3 animation*/
-#gallery .holder img{
+#gallery .holder .showSlide img{
 	opacity:0;
 	-webkit-animation: imgStartAnim 0.4s ease-in 0.1s both;
 	-moz-animation: imgStartAnim 0.4s ease-in 0.1s both;
@@ -160,7 +161,7 @@ textarea{
 	-ms-animation: imgStartAnim 0.4s ease-in 0.1s both;
 	animation: imgStartAnim 0.4s ease-in 0.1s both;
 }
-#gallery .holder .text{
+#gallery .holder .showSlide .text{
 	position:relative;
 	top:-200px;
 	-webkit-animation: textStartAnim 0.4s ease-in 0.1s both;
