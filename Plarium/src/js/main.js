@@ -1,15 +1,17 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        'jQuery':'../../bower/jquery/dist/jquery',
+        'jQuery': '../../bower/jquery/dist/jquery',
         'domReady': '../../bower/requirejs-domready/domReady',
-        'animo': '../../bower/animo.js/animo',
         'plaxmove': 'lib/plaxmove',
         'async': '../../bower/async/lib/async'
     },
     shim: {
         'jQuery': {
-            exports: '$'
+            exports: '$',
+            init: function () {
+                return jQuery.noConflict();
+            }
         },
         'plaxmove': {
             'deps': ['jQuery']
@@ -19,4 +21,18 @@ require.config({
         }
     }
 });
+
+require([
+    'jQuery',
+    'async',
+    'domReady',
+    'utils',
+    'modules/plaxmove',
+    'modules/animations',
+    'modules/form',
+    'modules/characters'
+], function ($, async, domReady, utils, plaxmove, animations) {
+    animations.run();
+});
+
 
