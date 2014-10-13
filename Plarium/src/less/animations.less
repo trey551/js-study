@@ -1,0 +1,258 @@
+@frameMiddleHeight: 82px;
+@frameEndHeight: 600px;
+@frameStartScale: 0.5;
+@frameEndScale: 1;
+
+.frameAnimationScale {
+  -webkit-animation-duration: 1.3s;
+  -o-animation-duration: 1.3s;
+  animation-duration: 1.3s;
+
+  -webkit-animation-name: frameAnimationScale;
+  -o-animation-name: frameAnimationScale;
+  animation-name: frameAnimationScale;
+}
+
+@-webkit-keyframes frameAnimationScale {
+  0% {
+    -webkit-transform: scale(@frameStartScale);
+    height: @frameMiddleHeight;
+  }
+  50% {
+    -webkit-transform: scale(@frameEndScale);
+    height: @frameMiddleHeight;
+  }
+  100% {
+    height: @frameEndHeight;
+  }
+}
+
+@keyframes frameAnimationScale {
+  0% {
+    transform: scale(@frameStartScale);
+    height: @frameMiddleHeight;
+  }
+  50% {
+    transform: scale(@frameEndScale);
+    height: @frameMiddleHeight;
+  }
+  100% {
+    height: @frameEndHeight;
+  }
+}
+
+#form .icon.zoomIn {
+  animation-duration: 0.5s;
+  -webkit-animation-duration: 0.5s;
+}
+
+.form_holder .row {
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;
+}
+
+.form_holder .row.full-width {
+  width: 278px;
+}
+
+.btn_holder.zoomIn,
+.ui_zone .btns button.zoomIn {
+  animation-duration: 0.3s;
+  -webkit-animation-duration: 0.3s;
+}
+
+.char_holder .equip.equipFade {
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+}
+
+.char_holder .equip.fadeIn {
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+}
+
+.animated.equipFade {
+  animation-name: equipFade;
+  -webkit-animation-name: equipFade;
+}
+
+@-webkit-keyframes equipFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes equipFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.btn_holder:hover ~ .hover,
+.btn_holder:active,
+.btn_holder:focus ~ .active {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  visibility: visible
+}
+
+.btn_holder .hover,
+.btn_holder .normal {
+  // opacity: 0;
+  // visibility: hidden;
+  -webkit-transition: opacity .2s, visibility .2s;
+  -moz-transition: opacity .2s, visibility .2s;
+  -o-transition: opacity .2s, visibility .2s;
+  -ms-transition: opacity .2s, visibility .2s;
+  transition: opacity .2s, visibility .2s
+}
+
+.btn_holder .hover,
+.btn_holder .normal {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.btn_holder .normal {
+  -webkit-animation: breathBtn 3s infinite;
+  animation: breathBtn 3s infinite
+}
+
+@keyframes breathBtn {
+  0% {
+    -webkit-opacity: 0;
+    opacity: 0;
+    visibility: hidden
+  }
+  70% {
+    -webkit-opacity: 1;
+    opacity: 1;
+    visibility: visible
+  }
+  100% {
+    -webkit-opacity: 0;
+    opacity: 0;
+    visibility: hidden
+  }
+}
+
+@-webkit-keyframes breathBtn {
+  0% {
+    -webkit-opacity: 0;
+    opacity: 0;
+    visibility: hidden
+  }
+  70% {
+    -webkit-opacity: 1;
+    opacity: 1;
+    visibility: visible
+  }
+  100% {
+    -webkit-opacity: 0;
+    opacity: 0;
+    visibility: hidden
+  }
+}
+#form .row input,
+.facebook-button {
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+}
+
+.form_holder .row .icon,
+.btn_holder {
+  display: none;
+}
+
+.char_holder .equip.valk_arm {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.char_holder .equip.valk_helm {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.char_holder .equip.soldier_armor {
+  -moz-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.check_row,
+.char_holder {
+  display: none;
+}
+
+.char_holder .equip.soldier_helm {
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+.btns .btn:before {
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.btns .btn:hover:before {
+  -webkit-animation: shineRotate 2s ease-out;
+  animation: shineRotate 2s ease-out;
+}
+
+@-webkit-keyframes shineRotate {
+  0% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes shineRotate {
+  0% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+.btns .btn.current {
+  -webkit-animation: btnScale 500ms linear;
+  animation: btnScale 500ms linear;
+  -webkit-animation-iteration-count: 6;
+  animation-iteration-count: 6;
+}
+
+@-webkit-keyframes btnScale {
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes btnScale {
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

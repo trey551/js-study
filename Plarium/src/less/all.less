@@ -126,74 +126,72 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 .btns {
   position: absolute;
-  /*top:50%;*/
   top: 106px;
   height: 601px;
   width: 284px;
   left: 23%;
-  /*margin:-300.5px 0 0 0;*/
-}
-.btns .btn {
-  position: absolute;
-  left: 0;
-  cursor: pointer;
-  text-indent: -9999px;
-  border: none;
-  width: 284px;
-  height: 252px;
-  padding: 0;
-  border: none !important;
-  z-index: 2;
-  display: none;
-}
-.btns .btn:before {
-  background: url("../images/bg_btn_shine.png") no-repeat;
-  content: "";
-  height: 252px;
-  left: 39px;
-  position: absolute;
-  top: -11px;
-  width: 253px;
-  opacity: 0;
-  z-index: 1;
-}
-.btns .btn:hover:before {
-  opacity: 1;
-}
-.btns .btn.valk_btn {
-  top: 50px;
-  background: url(../images/valk_btn.png) no-repeat;
-}
 
-.btns .btn.soldier_btn {
-  top: 300px;
-  background: url(../images/soldier_btn.png) no-repeat;
-}
+    .btn{
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+      text-indent: -9999px;
+      border: none;
+      width: 284px;
+      height: 252px;
+      padding: 0;
+      border: none !important;
+      z-index: 2;
+      display: none;
 
-.btns .btn span {
-  position: absolute;
-  left: 8px;
-  width: 131px;
-  height: 35px;
-  z-index: 100;
-}
+        &:before{
+          background: url("../images/bg_btn_shine.png") no-repeat;
+          content: "";
+          height: 252px;
+          left: 39px;
+          position: absolute;
+          top: -11px;
+          width: 253px;
+          opacity: 0;
+          z-index: 1;
+        }
 
-.btns .btn.valk_btn span {
-  background: url(../images/valk_btn_label.png) no-repeat;
-  bottom: 52px;
-}
+        &:hover:before{
+          opacity: 1;
+        }
 
-.btns .btn.soldier_btn span {
-  background: url(../images/soldier_btn_label.png) no-repeat;
-  bottom: 49px;
-}
+        span{
+          position: absolute;
+          left: 8px;
+          width: 131px;
+          height: 35px;
+          z-index: 100;
+        }
+    }
+    .btn.valk_btn{
+      top: 50px;
+      background: url(../images/valk_btn.png) no-repeat;
 
-.btns .btn.valk_btn.active {
-  background: url(../images/valk_btn_active.png) no-repeat;
-}
+        span{
+          background: url(../images/valk_btn_label.png) no-repeat;
+          bottom: 52px;
+        }
+    }
+    .btn.soldier_btn{
+      top: 300px;
+      background: url(../images/soldier_btn.png) no-repeat;
 
-.btns .btn.soldier_btn.active {
-  background: url(../images/soldier_btn_active.png) no-repeat;
+        span{
+          background: url(../images/soldier_btn_label.png) no-repeat;
+          bottom: 49px;
+        }
+    }
+    .btn.valk_btn.active{
+      background: url(../images/valk_btn_active.png) no-repeat;
+    }
+    .btn.soldier_btn.active{
+      background: url(../images/soldier_btn_active.png) no-repeat;
+    }
 }
 
 .logo {
@@ -202,20 +200,15 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   position: absolute;
   right: 21%;
   text-indent: -9999px;
-  /*top: 7%;*/
   top: 52px;
   width: 308px;
   z-index: 10;
-}
 
-.logo a {
-  display: block;
-  height: 100%;
+    a{
+      display: block;
+      height: 100%;
+    }
 }
-/*.form_holder .email .icon {*/
-/*background:url(../images/ico_email_error.png) no-repeat;*/
-/*visibility:visible !important;*/
-/*}*/
 
 .footer {
   background: #000;
@@ -224,25 +217,25 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   text-align: center;
   font: 14px/1.2 Helvetica, sans-serif;
   padding: 20px 0;
-}
 
-.footer ul {
-  width: 100%;
-  margin: 0 0 5px;
-}
+    ul{
+      width: 100%;
+      margin: 0 0 5px;
 
-.footer ul li {
-  display: inline-block;
-  background:url(../images/separator01.gif) no-repeat 0 50%;
-  padding: 0 8px 0 10px;
-}
+        li{
+          display: inline-block;
+          background:url(data:image/gif;base64,R0lGODlhAgAOAIAAANTU1KOjoyH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMTYyMkMxNzUyQjIxMUU0QTI0N0E1ODNEQjM4RDIzMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoxMTYyMkMxODUyQjIxMUU0QTI0N0E1ODNEQjM4RDIzMiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjExNjIyQzE1NTJCMjExRTRBMjQ3QTU4M0RCMzhEMjMyIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjExNjIyQzE2NTJCMjExRTRBMjQ3QTU4M0RCMzhEMjMyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAIADgAAAgZEjKfJqwUAOw==) no-repeat 0 50%;
+          // background:url(../images/separator01.gif) no-repeat 0 50%;
+          padding: 0 8px 0 10px;
 
-.footer ul li:first-child {
-  background: none;
-}
-
-.footer ul li a {
-  display: table;
+            &:first-child{
+              background: none;
+            }
+            a{
+              display: table;
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 1735px) {

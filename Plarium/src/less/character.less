@@ -1,0 +1,186 @@
+.char_frame {
+  position: absolute;
+  top: 106px;
+  left: 50%;
+  display: none;
+  width: 417px;
+  height: 601px;
+  margin: 0 0 0 -208.5px;
+  box-sizing: border-box;
+  border: 1px solid #bfbebe;
+  border-radius: 10px;
+  background: rgba(95, 228, 228, 0.1);
+  box-shadow: 0 0 31px 3px #5fe4e4 inset;
+
+  &:before {
+    background: url(../images/bg_char_frame_top.png) no-repeat;
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -3px;
+    width: 421px;
+    height: 44px;
+  }
+
+  &:after {
+    background: url(../images/bg_char_frame_bottom.png) no-repeat;
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: -3px;
+    width: 421px;
+    height: 44px;
+  }
+}
+
+.char_holder {
+  left: 50%;
+  margin: 0 0 0 -241.5px;
+  position: absolute;
+  top: 106px;
+  width: 547px;
+  height: 605px;
+
+  .char {
+    position: relative;
+    display: none;
+  }
+
+  .equip {
+    position: absolute;
+    text-indent: -9999px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      animation-name: none;
+      -webkit-animation-name: none;
+      opacity: 1;
+    }
+
+    span {
+      font: 11px/115px 'magistralcregular', Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-size: 11px;
+      color: #043945;
+      text-indent: 0;
+      position: absolute;
+      display: none;
+      text-align: center;
+    }
+
+    &:hover span {
+      display: block;
+    }
+  }
+  .char.selected {
+    display: block;
+  }
+  .equip.valk_arm {
+    background: url("../images/valk_arm.png") no-repeat;
+    height: 260px;
+    left: 229px;
+    top: 116px;
+    width: 113px;
+    span {
+      background: url("../images/valk_arm_label.png") no-repeat;
+      bottom: -26px;
+      height: 75px;
+      left: 77px;
+      width: 121px;
+    }
+  }
+  .equip.valk_helm {
+    background: url("../images/valk_helm.png") no-repeat;
+    height: 123px;
+    left: 152px;
+    top: 26px;
+    width: 110px;
+    span {
+      background: url("../images/valk_helm_label.png") no-repeat;
+      height: 47px;
+      left: -68px;
+      line-height: 38px;
+      text-indent: -26px;
+      top: -16px;
+      width: 151px;
+    }
+  }
+  .equip.valk_rifle {
+    background: url("../images/valk_rifle.png") no-repeat;
+    height: 262px;
+    left: 36px;
+    top: 14px;
+    width: 145px;
+
+    span {
+      background: url("../images/valk_rifle_label.png") no-repeat;
+      bottom: -25px;
+      height: 76px;
+      right: 7px;
+      width: 121px;
+    }
+  }
+  .equip.soldier_armor {
+    background: url("../images/soldier_armor.png") no-repeat;
+    bottom: 213px;
+    height: 108px;
+    left: 274px;
+    width: 67px;
+    span {
+      background: url("../images/soldier_armor_label.png") no-repeat;
+      bottom: -61px;
+      height: 76px;
+      left: 45px;
+      width: 121px;
+    }
+  }
+  .equip.soldier_helm {
+    background: url("../images/soldier_helm.png") no-repeat;
+    height: 55px;
+    left: 216px;
+    top: 44px;
+    width: 74px;
+    span {
+      background: url("../images/soldier_helm_label.png") no-repeat;
+      height: 43px;
+      left: 72px;
+      line-height: 38px;
+      text-indent: 22px;
+      top: -7px;
+      width: 146px;
+    }
+  }
+  .equip.soldier_pad {
+    background: url("../images/soldier_pad.png") no-repeat;
+    bottom: 169px;
+    height: 47px;
+    left: 196px;
+    width: 42px;
+    span {
+      background: url("../images/soldier_pad_label.png") no-repeat;
+      bottom: -34px;
+      height: 72px;
+      line-height: 110px;
+      right: 28px;
+      text-indent: -16px;
+      width: 139px;
+    }
+  }
+  .equip.soldier_rifle {
+    background: url("../images/soldier_rifle.png") no-repeat;
+    height: 68px;
+    left: 97px;
+    top: 99px;
+    width: 137px;
+    span {
+      background: url("../images/soldier_rifle_label.png") no-repeat;
+      bottom: -81px;
+      height: 76px;
+      line-height: 118px;
+      right: 40px;
+      width: 121px;
+    }
+  }
+}
