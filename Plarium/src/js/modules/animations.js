@@ -71,7 +71,7 @@ define([
             $('.facebook-button, .row input').each(function (i) {
                 $(this)
                     .css({
-                        'animationDelay': i * 0.1 + 's',
+                        'animationDelay': i * 0.01 + 's',
                         opacity: 0,
                         display: 'block'
                     })

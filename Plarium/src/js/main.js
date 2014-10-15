@@ -15,9 +15,6 @@ require.config({
         },
         'plaxmove': {
             'deps': ['jQuery']
-        },
-        'animo': {
-            'deps': ['jQuery']
         }
     }
 });

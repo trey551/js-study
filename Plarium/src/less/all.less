@@ -92,8 +92,13 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   position: relative;
 }
 .ui_zone {
-  min-height: 752px;
-  width: 100%;
+    margin: 0 auto;
+    max-width: 1275px;
+    min-height: 752px;
+    position: relative;
+}
+.hide {
+  display: none;
 }
 .block-parallax {
   height: 100%;
@@ -102,34 +107,35 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   overflow: hidden;
   position: absolute;
   width: 100%;
-}
-#parallax {
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-.parallax-layer {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-.parallax-layer.item3 {
-  width: 103%;
-}
-.parallax-layer img {
-  width: 100%;
-}
-.hide {
-  display: none;
+
+    #parallax {
+      height: 100%;
+      position: absolute;
+      width: 100%;
+
+        .parallax-layer {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+
+            img{
+              width: 100%;
+            }
+        }
+
+        .parallax-layer.item3 {
+          width: 103%;
+        }
+    }
 }
 .btns {
   position: absolute;
   top: 106px;
   height: 601px;
   width: 284px;
-  left: 23%;
+  left: 9%;
 
     .btn{
       position: absolute;
@@ -198,7 +204,7 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   background: url("../images/bg_logo.png") no-repeat;
   height: 121px;
   position: absolute;
-  right: 21%;
+  right: 7%;
   text-indent: -9999px;
   top: 52px;
   width: 308px;
@@ -236,19 +242,4 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
             }
         }
     }
-}
-
-@media screen and (max-width: 1735px) {
-  .btns {
-    left: 9%;
-  }
-
-  .form_holder,
-  .logo {
-    right: 6%;
-  }
-
-  .form_holder {
-    top: 31%;
-  }
 }
