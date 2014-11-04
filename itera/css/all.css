@@ -190,6 +190,7 @@ textarea{
 .main{
 	width:100%;
 	overflow:hidden;
+	margin:0 0 15px;
 }
 .sidebar{
 	float:left;
@@ -332,4 +333,31 @@ h1{
 	height:8px;
 	margin:5px 15px 0 0;
 	background-position:-73px 0;
+}
+.footer{
+	width:100%;
+	overflow:hidden;
+}
+.footer span{
+	float:left;
+	width:220px;
+	font-size:11px;
+	line-height:15px;
+	color:#6c6c6c;
+}
+.footer nav{
+	float:right;
+	font-size:12px;
+}
+.footer nav li{
+	float:left;
+	border-left:1px dotted #6cb3e7;
+	padding:0 15px;
+	line-height:20px;
+}
+.footer nav li:first-child{
+	border:none;
+}
+.footer a{
+	color:#1e4595;
 }
