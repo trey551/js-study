@@ -39,7 +39,7 @@ textarea{
 	width:100%;
 	overflow:hidden;
 	background:#d5ebfc;
-	padding:10px;
+	padding:9px 10px;
 	font-size:12px;
 	-webkit-box-sizing:border-box;
 	-moz-box-sizing:border-box;
@@ -62,7 +62,10 @@ textarea{
 	float:left;
 }
 .top .auth_block li{
-	margin:0 15px 0 0;
+	margin:0 8px 0 0;
+}
+.top .auth_block li:first-child{
+	margin:0 17px 0 0;
 }
 .top .auth_block a{
 	display:block;
@@ -70,7 +73,7 @@ textarea{
 .top .auth_block .alt{
 	border-left:1px dotted #6cb3e7;
 	font-weight:bold;
-	padding:0 0 0 15px;
+	padding:0 0 0 10px;
 }
 .top .auth_block .sprite{
 	background-position:-25px 0;
@@ -84,7 +87,7 @@ textarea{
 }
 .top .links li{
 	border-left:1px dotted #6cb3e7;
-	padding:0 15px;
+	padding:0 7px;
 }
 .top .links li:first-child{
 	border:none;
@@ -92,7 +95,7 @@ textarea{
 .middle{
 	width:100%;
 	overflow:hidden;
-	padding:27px 0;
+	padding:32px 0 25px;
 }
 .header .logo{
 	float:left;
@@ -100,6 +103,7 @@ textarea{
 	width:191px;
 	height:27px;
 	text-indent:-9999px;
+	margin:0 0 0 3px;
 }
 .header .logo a{
 	display:block;
@@ -107,10 +111,11 @@ textarea{
 }
 .search_block{
 	float:right;
+	margin:-3px 0 0 0;
 }
 .search_block input[type=text]{
 	float:left;
-	width:204px;
+	width:195px;
 	background:#fff;
 	border:1px solid #81afd0;
 	padding:6px 10px;
@@ -154,7 +159,7 @@ textarea{
 	-webkit-border-radius:10px 10px 10px 10px;
 	-moz-border-radius:10px 10px 10px 10px;
 	border-radius:10px 10px 10px 10px;
-	padding:11px 0;
+	padding:10px 0;
 	line-height:25px;
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNDU5NSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxMzM1N2EiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: -moz-linear-gradient(top,  #1e4595 0%, #13357a 100%);
@@ -168,7 +173,7 @@ textarea{
 .nav li{
 	float:left;
 	border-left:1px dotted #6cb3e7;
-	padding:0 11px;
+	padding:0 14px;
 }
 .nav li:first-child{
 	border:none;
@@ -190,7 +195,7 @@ textarea{
 .main{
 	width:100%;
 	overflow:hidden;
-	margin:0 0 15px;
+	margin:0 0 25px;
 }
 .sidebar{
 	float:left;
@@ -198,7 +203,7 @@ textarea{
 	margin:0 19px 0 0;
 }
 .sidebar .box{
-	margin:10px 0 0 0;
+	margin:12px 0 0 0;
 }
 .sidebar .box:first-child{
 	margin:0;
@@ -217,7 +222,7 @@ textarea{
 	font-size:16px;
 	font-weight:normal;
 	background:#1e4595;
-	padding:10px;
+	padding:9px 11px 7px;
 }
 .side_list{
 	width:100%;
@@ -225,7 +230,7 @@ textarea{
 .side_list li{
 	border-bottom:1px solid #cad1d6;
 	border-top:1px solid #fff;
-	padding:10px 28px 10px 10px;
+	padding:7px 28px 6px 13px;
 	position:relative;
 }
 .side_list li:first-child{
@@ -254,15 +259,19 @@ h1{
 	font-weight:normal;
 	color:#1e4595;
 }
+.heading{
+	padding:0 2 px;
+}
 .heading p{
 	line-height:21px;
 }
 .heading h1{
-	margin:0 0 8px;
+	margin:16px 0 3px;
 }
 .link_cols{
 	width:100%;
 	overflow:hidden;
+	padding: 0 0 11px;
 }
 .link_cols .col{
 	float:left;
@@ -278,10 +287,10 @@ h1{
 	font-size:16px;
 	color:#1e4595;
 	font-weight:normal;
-	margin:0 0 8px;
+	margin:0 0 17px;
 }
 .link_cols .col li{
-	margin:5px 0 0 0;
+	margin:13px 0 0 0;
 	width:100%;
 	overflow:hidden;
 	line-height:22px;
@@ -304,7 +313,7 @@ h1{
 }
 .twocolumn .box{
 	float:right;
-	width:48%;
+	width:48.5%;
 	margin:0;
 }
 .btn_more{
@@ -312,6 +321,7 @@ h1{
 	font-size:13px;
 	color:#b0dbfa;
 	line-height:22px;
+	margin:-1px -1px 0 0;
 }
 .btn_more:hover{
 	color:#fff;
@@ -325,7 +335,12 @@ h1{
 	margin:0 0 0 5px;
 }
 .box .list li{
-	padding:8px 19px;
+	/*padding:9px 19px 6px;*/
+	padding:0 19px;
+	margin:15px 0 0 0;
+}
+.box .list li:first-child{
+	margin:10px 0 0 0;
 }
 .box .list .sprite{
 	float:left;
@@ -337,6 +352,7 @@ h1{
 .footer{
 	width:100%;
 	overflow:hidden;
+	padding:0 0 25px;
 }
 .footer span{
 	float:left;
@@ -344,6 +360,7 @@ h1{
 	font-size:11px;
 	line-height:15px;
 	color:#6c6c6c;
+	margin:4px 0 0 0;
 }
 .footer nav{
 	float:right;
@@ -352,7 +369,7 @@ h1{
 .footer nav li{
 	float:left;
 	border-left:1px dotted #6cb3e7;
-	padding:0 15px;
+	padding:0 9px;
 	line-height:20px;
 }
 .footer nav li:first-child{
