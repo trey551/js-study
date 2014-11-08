@@ -2,43 +2,26 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>">
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<style>
-			.top,
-			.search_block input,
-			.btn,
-			.nav,
-			.box{
-				behavior: url(css/border-radius.htc);
-			}
-		</style>
-	<![endif]-->
+	<title><?php wp_title( '-', true, 'right' ); ?></title>
+	<link media="all" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/all.css"/>
 	<!--[if gte IE 9]>
 	  <style type="text/css">
-	    .gradient {
-	       filter: none;
-	    }
+		.gradient {
+		   filter: none;
+		}
 	  </style>
 	<![endif]-->
-	<?php wp_head(); ?>
 </head>
 <body>
 	<div class="wrapper">
 		<header class="header">
 			<div class="top">
 				<ul class="auth_block">
-					<li><a href="#"><i class="sprite"></i> Log in</a></li>
-					<li><a href="#"><i class="sprite"></i> Sign up</a></li>
-					<li class="alt"><a href="#">Archive</a></li>
+					<li><a target="_blank" href="<?php echo get_settings('siteurl'); ?>/wp-login.php"><i class="sprite"></i> Log in</a></li>
+					<li><a target="_blank" href="<?php echo get_settings('siteurl') . '/wp-login.php?action=register'?>"><i class="sprite"></i> Sign up</a></li>
+					<li class="alt"><?php wp_get_archives('format=custom'); ?></li>
 				</ul>
-				<ul class="links">
-					<li><a href="#">Mission &amp; History</a></li>
-					<li><a href="#">FAQs</a></li>
-					<li><a href="#">Get in Touch</a></li>
-					<li><a href="#">Our Work</a></li>
-				</ul>
+				<?php wp_nav_menu( array('theme_location' => 'extra-menu', 'container' => false, 'menu_class' => 'links') ); ?>
 			</div>
 			<div class="middle">
 				<strong class="logo sprite">

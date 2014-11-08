@@ -113,7 +113,9 @@ textarea{
 	float:right;
 	margin:-3px 0 0 0;
 }
-.search_block input[type=text]{
+.search_block input[type=text],
+.form input[type=text],
+.form input[type=password]{
 	float:left;
 	width:195px;
 	background:#fff;
@@ -124,7 +126,8 @@ textarea{
 	border-radius:5px 5px 5px 5px;
 	margin:0 3px 0 0;
 }
-.btn{
+.btn,
+.form input[type=submit]{
 	width:80px;
 	text-align:center;
 	float:left;
@@ -377,4 +380,19 @@ h1{
 }
 .footer a{
 	color:#1e4595;
+}
+.form{
+	width:100%;
+	overflow:hidden;
+}
+.form label{
+	display:block;
+	margin:0 0 5px;
+}
+.form p{
+	overflow:hidden;
+	margin:0 0 10px;
+}
+.form h1{
+	margin:0 0 10px;
 }
