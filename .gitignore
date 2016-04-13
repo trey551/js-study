@@ -6,3 +6,6 @@ npm-debug.log
 
 *.zip
 *.log
+/Plarium/node_modules
+/Plarium/build
+/Plarium/bower
